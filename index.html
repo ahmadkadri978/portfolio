@@ -1,132 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Programming Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        header nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        header nav ul li {
-            display: inline;
-            margin: 0 1rem;
-        }
-
-        header nav ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        section {
-            padding: 2rem;
-        }
-
-        .project {
-            margin-bottom: 2rem;
-        }
-
-        video {
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-          
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmad Kadri | Spring Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #1e1e2f;
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    header h1 {
+      margin-bottom: 0.5rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #1e1e2f;
+      margin-bottom: 1rem;
+    }
+    .project {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+    video {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    footer {
+      background: #1e1e2f;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+    a {
+      color: #0077cc;
+    }
+  </style>
 </head>
 <body>
-<header>
-    <h1>Welcome to My Spring Developer Portfolio</h1>
+  <header>
+    <h1>Ahmad Kadri - Software Engineer (Backend)</h1>
     <nav>
-        <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
 
-<section id="about">
+  <section id="about">
     <h2>About Me</h2>
-    <p>I'm a software engineer (backend Focus) passionate about building secure, scalable, and well-architected systems using Java, Spring Boot, and Spring Framework.
+    <p>I am a backend-focused software engineer specializing in building secure, scalable, and maintainable systems using Java, Spring Boot, and related technologies.</p>
+    <p>My toolkit includes REST APIs, JWT-based Auth (Auth0), SQL, Docker, Swagger, CI/CD (GitHub Actions), and deep care for validation, exception handling, and testing (unit & integration).</p>
+    <p>I architect systems that align with real-world business needs and grow with the product.</p>
+  </section>
 
-I design clean REST APIs, implement JWT-based RBAC authentication (with Auth0), and structure code for long-term maintainability. My skill set includes SQL, Docker, Swagger, and a strong focus on data validation, exception handling, and automated testing (unit and integration).
-
-I also leverage GitHub Actions to automate CI workflows, ensuring code quality and continuous delivery.
-
-I'm always striving to write clean, reliable code that supports real-world business logic and grows with the product.</p>
-</section>
-
-<section id="projects">
+  <section id="projects">
     <h2>Projects</h2>
+
     <div class="project">
-        <h3>Project 1: Digital Library Management System</h3>
-        <p>This project showcases the complete process of containerizing, deploying, and performance testing a digital library application using Docker and AWS Fargate.
-
-Project Steps:
-
-1️⃣ Dockerization – Creating a Docker container for the application.
-2️⃣ Pushing to Docker Hub – Uploading the Docker image to Docker Hub Registry.
-3️⃣ AWS Fargate Setup – Deploying the application on a serverless infrastructure.
-4️⃣ Load Balancer Configuration – Setting up an Application Load Balancer (ALB).
-5️⃣ Database Setup (Amazon RDS) – Configuring a scalable MySQL database on AWS.
-6️⃣ Deploying the Application – Running and managing tasks on AWS Fargate.
-7️⃣ Testing with 50 Requests – Simulating high traffic using Apache Benchmark & JMeter.
-8️⃣ Performance Analysis – Optimizing response time and system scalability.
-9️⃣ Performance Enhancements – Implementing Hikari Connection Pooling & Indexing to improve database query performance and handle concurrent connections efficiently.
-
-🔹 Tech Stack: Spring Boot, MySQL, Docker, AWS Fargate, RDS, ALB, Apache JMeter.
-🔹 Goal: Achieve a scalable, efficient, and highly available backend infrastructure.</p>
-        <video controls>
-            <source src="https://www.dropbox.com/scl/fi/j7or1sax2p200mx3tw4o3/Digital-Library-Management-System.mp4?rlkey=gn816tm9nkz8oeaws0x9d6w5u&st=a2ovgjum&dl=1" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+      <h3>Digital Library Management System</h3>
+      <p>A complete backend infrastructure project including Docker, AWS Fargate deployment, MySQL RDS, Load Balancer, and performance testing using JMeter.</p>
+      <p><strong>Tech Stack:</strong> Spring Boot, Docker, AWS, MySQL, Apache JMeter</p>
+      <video controls>
+        <source src="https://www.dropbox.com/scl/fi/j7or1sax2p200mx3tw4o3/Digital-Library-Management-System.mp4?rlkey=gn816tm9nkz8oeaws0x9d6w5u&st=a2ovgjum&dl=1" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
+
     <div class="project">
-        <h3>Project 2: Bookstore Application</h3>
-        <p>Developed a responsive and user-friendly bookstore web application using Spring Boot and Thymeleaf. Features include secure user registration and login, a dynamic book catalog with purchase options, and a responsive design optimized for both mobile and desktop views.</p>
-        <video controls>
-            <source src="https://www.dropbox.com/scl/fi/2gv8fkvnh0iwffj9sxnff/my-book-store.mp4?rlkey=9a9er9llicfdmdyhsiiyqizdg&st=4eqlcdhr&dl=1" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+      <h3>Bookstore Application</h3>
+      <p>A responsive bookstore application built with Spring Boot and Thymeleaf. Features include secure login, book catalog, and adaptive design for all devices.</p>
+      <p><strong>Tech Stack:</strong> Spring Boot, Thymeleaf, Spring Security</p>
+      <video controls>
+        <source src="https://www.dropbox.com/scl/fi/2gv8fkvnh0iwffj9sxnff/my-book-store.mp4?rlkey=9a9er9llicfdmdyhsiiyqizdg&st=4eqlcdhr&dl=1" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
-</section>
 
-<section id="contact">
+  </section>
+
+  <section id="contact">
     <h2>Contact</h2>
-    <p>To get in touch with me, you can send an email to <a href="mailto:ahmadkadri@web.de">ahmadkadri@web.de</a>.</p>
-</section>
+    <p>Email: <a href="mailto:ahmadkadri@web.de">ahmadkadri@web.de</a></p>
+    <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/ahmadkadri978</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/kadri-ahmad</a></p>
+  </section>
 
-<footer>
-    <p>&copy; 2024 My Spring Developer Portfolio</p>
-</footer>
+  <footer>
+    <p>&copy; 2025 Ahmad Kadri | Software Engineer (Backend) Portfolio</p>
+  </footer>
 </body>
 </html>
 
