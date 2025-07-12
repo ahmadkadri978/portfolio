@@ -62,6 +62,30 @@
 .project img:hover {
   transform: scale(1.03);
 }
+    .screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.screenshot-item {
+  text-align: center;
+}
+.screenshot-item p {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.screenshot-item img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+.screenshot-item img:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
 
     video {
       width: 100%;
@@ -145,19 +169,71 @@
     </video>
     <p><a class="project-link" href="https://github.com/ahmadkadri978/Digital-Library-Management-System" target="_blank">🔗 View Source Code on GitHub</a></p>
   </div>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-top: 1rem;">
-  <img src="Home-page.jpg" alt="Home Page" style="width: 100%; border-radius: 8px;" />
-  <img src="books-page.jpg" alt="Books Page" style="width: 100%; border-radius: 8px;" />
-  <img src="search-page.jpg" alt="Search Page" style="width: 100%; border-radius: 8px;" />
-  <img src="reservations-page.jpg" alt="Reservations Page" style="width: 100%; border-radius: 8px;" />
-  <img src="duplicated-reservation-error.jpg" alt="Reservations Page" style="width: 100%; border-radius: 8px;" />
-  <img src="reservations-admin-page.jpg" alt="Admin Reservations Page" style="width: 100%; border-radius: 8px;" />
-  <img src="admin-books-page.jpg" alt="Admin Books Page" style="width: 100%; border-radius: 8px;" />
-  <img src="admin-add-book-page.jpg" alt="Add Book Page" style="width: 100%; border-radius: 8px;" />
-  <img src="admin-edit-book-page.jpg" alt="Edit Book Page" style="width: 100%; border-radius: 8px;" />
-  <img src="admin-Manage-users-page.jpg" alt="Manage Users Page" style="width: 100%; border-radius: 8px;" />
-  <img src="profile-page.jpg" alt="User Profile Page" style="width: 100%; border-radius: 8px;" />  
+    <h3>Screenshots</h3>
+<div class="screenshots-grid">
+  <div class="screenshot-item">
+    <p>Login Page</p>
+    <a href="images/login-page.png" target="_blank">
+      <img src="images/login-page.png" alt="Login Page Screenshot" />
+    </a>
+  </div>
+  <div class="screenshot-item">
+    <p>Books List</p>
+    <a href="images/books-page.jpg" target="_blank">
+      <img src="images/books-page.jpg" alt="Books List Screenshot" />
+    </a>
+  </div>
+  <div class="screenshot-item">
+    <p>Search Books</p>
+    <a href="search-page.jpg" target="_blank">
+      <img src="search-page.jpg" alt="Search Books Screenshot" />
+    </a>
+  </div>
+  <div class="screenshot-item">
+    <p>My Reservations (User)</p>
+    <a href="reservations-page.jpg" target="_blank">
+      <img src="reservations-page.jpg" alt="User Reservations Screenshot" />
+    </a>
+  </div>
+  <div class="screenshot-item">
+    <p>Duplicated Reservations</p>
+    <a href="reservations-page.jpg" target="_blank">
+      <img src="duplicated-reservations-error.jpg" alt="duplicated reservations Screenshot" />
+    </a>
+  </div>
+  <div class="screenshot-item">
+    <p>Admin - Reservations</p>
+    <a href="reservations-page.jpg" target="_blank">
+      <img src="reservations-admin-page.jpg" alt="reservations admin Screenshot" />
+    </a>
+  </div>
+  <div class="screenshot-item">
+    <p>Admin - Manage Books</p>
+    <a href="admin-books-page.jpg" target="_blank">
+      <img src="admin-books-page.jpg" alt="Admin Books Screenshot" />
+    </a>
+  </div>
+  <div class="screenshot-item">
+    <p>Admin - Add Book</p>
+    <a href="images/admin-add-book-page.jpg" target="_blank">
+      <img src="images/admin-add-book-page.jpg" alt="Admin Add Book Screenshot" />
+    </a>
+  </div>
+  <div class="screenshot-item">
+    <p>Admin - Edit Book</p>
+    <a href="admin-edit-book-page.jpg" target="_blank">
+      <img src="admin-edit-book-page.jpg" alt="Admin Edit Book Screenshot" />
+    </a>
+  </div>
+  
+  <div class="screenshot-item">
+    <p>Admin - Manage Users</p>
+    <a href="admin-Manage-users-page.jpg" target="_blank">
+      <img src="admin-Manage-users-page.jpg" alt="Manage Users Screenshot" />
+    </a>
+  </div>
 </div>
+
 
 
   <div class="project">
