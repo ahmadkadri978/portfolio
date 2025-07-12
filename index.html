@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ahmad Kadri</title>
+  <title>Ahmad Kadri | Backend Architect Portfolio</title>
+  <meta name="description" content="Ahmad Kadri - Backend Architect Portfolio showcasing Java Spring Boot projects, REST APIs, Docker, AWS, and more.">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -34,11 +36,16 @@
       display: flex;
       justify-content: center;
       gap: 1.5rem;
+      flex-wrap: wrap;
     }
     nav ul li a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #00bcd4;
     }
     section {
       padding: 3rem 2rem;
@@ -48,6 +55,8 @@
     h2 {
       color: #1e1e2f;
       margin-bottom: 1rem;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.3rem;
     }
     .project {
       background: #fff;
@@ -57,68 +66,62 @@
       margin-bottom: 2rem;
     }
     .project-link {
-  display: inline-block;
-  margin-top: 0.8rem;
-  background-color: #0077cc;
-  color: white;
-  padding: 0.4rem 1rem;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-}
-.project-link:hover {
-  background-color: #005fa3;
-}
-
-    .project img {
-  transition: transform 0.3s ease;
-}
-.project img:hover {
-  transform: scale(1.03);
-}
+      display: inline-block;
+      margin-top: 0.8rem;
+      background-color: #0077cc;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .project-link:hover {
+      background-color: #005fa3;
+    }
     .screenshots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-.screenshot-item {
-  text-align: center;
-}
-.screenshot-item p {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-.screenshot-item img {
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
-}
-.screenshot-item img:hover {
-  transform: scale(1.02);
-  cursor: pointer;
-}
-
-
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .screenshot-item {
+      text-align: center;
+    }
+    .screenshot-item p {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .screenshot-item img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .screenshot-item img:hover {
+      transform: scale(1.03);
+      cursor: pointer;
+    }
     video {
       width: 100%;
       border-radius: 8px;
       margin-top: 1rem;
     }
-    .project-link {
-  display: inline-block;
-  margin-top: 0.8rem;
-  background-color: #0077cc;
-  color: white;
-  padding: 0.4rem 1rem;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-}
-.project-link:hover {
-  background-color: #005fa3;
-}
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+    .skills-list li {
+      background: #1e1e2f;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.95rem;
+    }
     footer {
       background: #1e1e2f;
       color: #fff;
@@ -133,14 +136,14 @@
 </head>
 <body>
   <header>
-    <h1>Ahmad Kadri - Backend Architect </h1>
+    <h1>Ahmad Kadri - Backend Architect</h1>
     <img src="ahmad.jpg" alt="Ahmad Kadri Photo" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid white;">
     <nav>
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="Ahmad_Kadri_CV.pdf" target="_blank">CV</a></li>
+        <li><a href="Ahmad_Kadri_CV.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -152,77 +155,76 @@
     <p>My toolkit includes REST APIs, JWT-based Auth (Auth0), SQL, Docker, Swagger, CI/CD (GitHub Actions), and deep care for validation, exception handling, and testing (unit & integration).</p>
     <p>I architect systems that align with real-world business needs and grow with the product.</p>
   </section>
+
   <section id="skills">
-  <h2>Skills</h2>
-  <ul style="display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; padding: 0; margin-top: 1rem;">
-    <li style="background: #1e1e2f; color: white; padding: 0.5rem 1rem; border-radius: 20px;">Java</li>
-    <li style="background: #1e1e2f; color: white; padding: 0.5rem 1rem; border-radius: 20px;">Spring Boot</li>
-    <li style="background: #1e1e2f; color: white; padding: 0.5rem 1rem; border-radius: 20px;">Spring Security</li>
-    <li style="background: #1e1e2f; color: white; padding: 0.5rem 1rem; border-radius: 20px;">JWT / Auth0</li>
-    <li style="background: #1e1e2f; color: white; padding: 0.5rem 1rem; border-radius: 20px;">REST APIs</li>
-    <li style="background: #1e1e2f; color: white; padding: 0.5rem 1rem; border-radius: 20px;">Docker</li>
-    <li style="background: #1e1e2f; color: white; padding: 0.5rem 1rem; border-radius: 20px;">MySQL</li>
-    <li style="background: #1e1e2f; color: white; padding: 0.5rem 1rem; border-radius: 20px;">JPA / Hibernate</li>
-    <li style="background: #1e1e2f; color: white; padding: 0.5rem 1rem; border-radius: 20px;">Swagger</li>
-    <li style="background: #1e1e2f; color: white; padding: 0.5rem 1rem; border-radius: 20px;">JMeter</li>
-    <li style="background: #1e1e2f; color: white; padding: 0.5rem 1rem; border-radius: 20px;">CI/CD (GitHub Actions)</li>
-    <li style="background: #1e1e2f; color: white; padding: 0.5rem 1rem; border-radius: 20px;">Unit Testing (JUnit)</li>
-    <li style="background: #1e1e2f; color: white; padding: 0.5rem 1rem; border-radius: 20px;">Integration Testing (MockMvc)</li>
-  </ul>
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>Java</li>
+      <li>Spring Boot</li>
+      <li>Spring Security</li>
+      <li>JWT / Auth0</li>
+      <li>REST APIs</li>
+      <li>Docker</li>
+      <li>MySQL</li>
+      <li>JPA / Hibernate</li>
+      <li>Swagger</li>
+      <li>JMeter</li>
+      <li>CI/CD (GitHub Actions)</li>
+      <li>Unit Testing (JUnit)</li>
+      <li>Integration Testing (MockMvc)</li>
+      <li>Redis Caching</li>
+      <li>Thymeleaf</li>
+    </ul>
   </section>
 
   <section id="projects">
-  <h2>Projects</h2>
+    <h2>Projects</h2>
 
-  <!-- Digital Library Project -->
-  <div class="project">
-    <h3>📚 Digital Library Management System</h3>
-    <p>A complete backend infrastructure project including Docker, AWS Fargate deployment, MySQL RDS, Load Balancer, and performance testing using JMeter.</p>
-    <p><strong>Tech Stack:</strong> Spring Boot, Spring Security, OAuth2, Redis, Docker, AWS, MySQL, Apache JMeter</p>
+    <div class="project">
+      <h3>📚 Digital Library Management System</h3>
+      <p>A complete backend infrastructure project including Docker, AWS Fargate deployment, MySQL RDS, Load Balancer, and performance testing using JMeter.</p>
+      <p><strong>Tech Stack:</strong> Spring Boot, Spring Security, OAuth2, Redis, Docker, AWS, MySQL, Apache JMeter</p>
 
-    <video controls>
-      <source src="https://www.dropbox.com/scl/fi/j7or1sax2p200mx3tw4o3/Digital-Library-Management-System.mp4?rlkey=gn816tm9nkz8oeaws0x9d6w5u&st=a2ovgjum&dl=1" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+      <video controls>
+        <source src="https://www.dropbox.com/scl/fi/j7or1sax2p200mx3tw4o3/Digital-Library-Management-System.mp4?rlkey=gn816tm9nkz8oeaws0x9d6w5u&st=a2ovgjum&dl=1" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
 
-    <p><a class="project-link" href="https://github.com/ahmadkadri978/Digital-Library-Management-System" target="_blank">🔗 View Source Code on GitHub</a></p>
-  </div>
+      <p><a class="project-link" href="https://github.com/ahmadkadri978/Digital-Library-Management-System" target="_blank" rel="noopener noreferrer">🔗 View Source Code on GitHub</a></p>
+    </div>
 
-  <!-- Screenshots Gallery -->
-  <h3 style="margin-top: 2rem;">📸 Screenshots</h3>
-  <div class="screenshots-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
-    <div><p>Home Page</p><img src="Home-page.jpg" alt="Home" style="width:100%; border-radius:8px;"></div>
-    <div><p>Books List</p><img src="books-page.jpg" alt="Books List" style="width:100%; border-radius:8px;"></div>
-    <div><p>Search Books</p><img src="search-page.jpg" alt="Search" style="width:100%; border-radius:8px;"></div>
-    <div><p>My Reservations (User)</p><img src="reservations-page.jpg" alt="User Reservations" style="width:100%; border-radius:8px;"></div>
-    <div><p>Duplicate Reservation Error</p><img src="duplicated-reservation-error.jpg" alt="Error" style="width:100%; border-radius:8px;"></div>
-    <div><p>Admin - Reservations</p><img src="reservations-admin-page.jpg" alt="Admin Reservations" style="width:100%; border-radius:8px;"></div>
-    <div><p>Admin - Manage Books</p><img src="admin-books-page.jpg" alt="Admin Books" style="width:100%; border-radius:8px;"></div>
-    <div><p>Admin - Add Book</p><img src="admin-add-book-page.jpg" alt="Add Book" style="width:100%; border-radius:8px;"></div>
-    <div><p>Admin - Edit Book</p><img src="admin-edit-book-page.jpg" alt="Edit Book" style="width:100%; border-radius:8px;"></div>
-    <div><p>Admin - Manage Users</p><img src="admin-Manage-users-page.jpg" alt="Manage Users" style="width:100%; border-radius:8px;"></div>
-  </div>
+    <h3 style="margin-top: 2rem;">📸 Screenshots</h3>
+    <div class="screenshots-grid">
+      <div class="screenshot-item"><p>Home Page</p><img src="Home-page.jpg" alt="Home Page"></div>
+      <div class="screenshot-item"><p>Books List</p><img src="books-page.jpg" alt="Books List"></div>
+      <div class="screenshot-item"><p>Search Books</p><img src="search-page.jpg" alt="Search Books"></div>
+      <div class="screenshot-item"><p>User Reservations</p><img src="reservations-page.jpg" alt="Reservations"></div>
+      <div class="screenshot-item"><p>Duplicate Reservation Error</p><img src="duplicated-reservation-error.jpg" alt="Error"></div>
+      <div class="screenshot-item"><p>Admin Reservations</p><img src="reservations-admin-page.jpg" alt="Admin Reservations"></div>
+      <div class="screenshot-item"><p>Admin Manage Books</p><img src="admin-books-page.jpg" alt="Manage Books"></div>
+      <div class="screenshot-item"><p>Add Book</p><img src="admin-add-book-page.jpg" alt="Add Book"></div>
+      <div class="screenshot-item"><p>Edit Book</p><img src="admin-edit-book-page.jpg" alt="Edit Book"></div>
+      <div class="screenshot-item"><p>Manage Users</p><img src="admin-Manage-users-page.jpg" alt="Users"></div>
+    </div>
 
-  <!-- Bookstore Project -->
-  <div class="project" style="margin-top: 3rem;">
-    <h3>📖 Bookstore Application</h3>
-    <p>A responsive bookstore application built with Spring Boot and Thymeleaf. Features include secure login, book catalog, and adaptive design for all devices.</p>
-    <p><strong>Tech Stack:</strong> Spring Boot, Thymeleaf, Spring Security</p>
+    <div class="project" style="margin-top: 3rem;">
+      <h3>📖 Bookstore Application</h3>
+      <p>A responsive bookstore application built with Spring Boot and Thymeleaf. Features include secure login, book catalog, and adaptive design for all devices.</p>
+      <p><strong>Tech Stack:</strong> Spring Boot, Thymeleaf, Spring Security</p>
 
-    <video controls>
-      <source src="https://www.dropbox.com/scl/fi/2gv8fkvnh0iwffj9sxnff/my-book-store.mp4?rlkey=9a9er9llicfdmdyhsiiyqizdg&st=4eqlcdhr&dl=1" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</section>
-
+      <video controls>
+        <source src="https://www.dropbox.com/scl/fi/2gv8fkvnh0iwffj9sxnff/my-book-store.mp4?rlkey=9a9er9llicfdmdyhsiiyqizdg&st=4eqlcdhr&dl=1" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
 
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:ahmadkadri@web.de">ahmadkadri@web.de</a></p>
-    <p>GitHub: <a href="https://github.com/ahmadkadri978" target="_blank">github.com/ahmadkadri978</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/kadri-ahmad" target="_blank">linkedin.com/in/kadri-ahmad</a></p>
-    <p><a href="Ahmad_Kadri_CV.pdf" class="project-link" target="_blank">📄 Download My CV (PDF)</a></p>
+    <p>GitHub: <a href="https://github.com/ahmadkadri978" target="_blank" rel="noopener noreferrer">github.com/ahmadkadri978</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/kadri-ahmad" target="_blank" rel="noopener noreferrer">linkedin.com/in/kadri-ahmad</a></p>
+    <p><a href="Ahmad_Kadri_CV.pdf" class="project-link" target="_blank" rel="noopener noreferrer">📄 Download My CV (PDF)</a></p>
   </section>
 
   <footer>
