@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Ahmad Kadri | Senior Backend Engineer</title>
-  <meta name="description" content="Ahmad Kadri - Senior Backend Engineer specialized in Java, Spring Boot, REST APIs, Security, Docker, Nginx, CI/CD and scalable backend systems.">
+  <meta name="description" content="Ahmad Kadri - Senior Backend Engineer specialized in Java, Spring Boot, REST APIs, Security, Docker, Nginx, CI/CD, performance testing, and scalable backend systems.">
 
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,12 +16,17 @@
     :root {
       --bg: #020617;
       --card-light: rgba(255, 255, 255, 0.06);
+      --card-strong: rgba(15, 23, 42, 0.88);
       --border: rgba(148, 163, 184, 0.22);
+      --border-strong: rgba(56, 189, 248, 0.35);
       --text: #f8fafc;
       --muted: #cbd5e1;
       --muted-2: #94a3b8;
       --primary: #38bdf8;
+      --primary-soft: rgba(56, 189, 248, 0.12);
       --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.13);
+      --success: #22c55e;
       --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
       --radius-xl: 28px;
       --radius-lg: 20px;
@@ -175,7 +180,7 @@
     }
 
     .section-text {
-      max-width: 760px;
+      max-width: 780px;
       color: var(--muted);
       font-size: 1.05rem;
     }
@@ -190,6 +195,7 @@
       border: 1px solid transparent;
       font-weight: 900;
       transition: 0.22s ease;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -207,6 +213,10 @@
       color: var(--text);
       border-color: var(--border);
       background: rgba(255, 255, 255, 0.055);
+    }
+
+    .openable-image {
+      cursor: zoom-in;
     }
 
     .hero {
@@ -231,7 +241,7 @@
     }
 
     .hero h2 {
-      max-width: 850px;
+      max-width: 900px;
       font-size: clamp(2.8rem, 7vw, 5.9rem);
       line-height: 0.93;
       letter-spacing: -0.08em;
@@ -243,7 +253,7 @@
     }
 
     .hero p {
-      max-width: 760px;
+      max-width: 780px;
       margin-top: 1.4rem;
       color: var(--muted);
       font-size: 1.13rem;
@@ -336,18 +346,27 @@
     }
 
     .expertise-grid,
+    .impact-grid,
+    .principles-grid,
     .skill-groups {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
       margin-top: 2rem;
     }
 
+    .expertise-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .impact-grid,
+    .principles-grid,
     .skill-groups {
       grid-template-columns: repeat(2, 1fr);
     }
 
     .expertise-card,
+    .impact-card,
+    .principle-card,
     .skill-group,
     .project-box,
     .contact-card {
@@ -358,15 +377,23 @@
     }
 
     .expertise-card h3,
+    .impact-card h3,
+    .principle-card h3,
     .skill-group h3 {
       font-size: 1.05rem;
       margin-bottom: 0.55rem;
       letter-spacing: -0.02em;
     }
 
-    .expertise-card p {
+    .expertise-card p,
+    .impact-card p,
+    .principle-card p {
       color: var(--muted);
       font-size: 0.96rem;
+    }
+
+    .principle-card {
+      border-color: rgba(56, 189, 248, 0.18);
     }
 
     .tags {
@@ -401,6 +428,29 @@
       padding: clamp(1.35rem, 3vw, 2rem);
     }
 
+    .featured-project {
+      border-color: var(--border-strong);
+      background:
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+    }
+
+    .case-label {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 0.44rem 0.72rem;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      background: var(--accent-soft);
+      color: #fde68a;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+
     .project h3 {
       font-size: clamp(1.35rem, 3vw, 2rem);
       letter-spacing: -0.05em;
@@ -410,8 +460,37 @@
 
     .project-summary {
       color: var(--muted);
-      max-width: 920px;
+      max-width: 940px;
       margin-bottom: 1rem;
+    }
+
+    .performance-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.8rem;
+      margin: 1.3rem 0;
+    }
+
+    .performance-card {
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      background: rgba(56, 189, 248, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+    }
+
+    .performance-card strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.28rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+    }
+
+    .performance-card span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
     }
 
     .project-grid {
@@ -581,11 +660,82 @@
       font-size: 0.92rem;
     }
 
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      background: rgba(2, 6, 23, 0.92);
+      backdrop-filter: blur(14px);
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-content {
+      width: min(1200px, 96vw);
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .lightbox-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--text);
+    }
+
+    .lightbox-title {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .lightbox-close {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.16);
+    }
+
+    .lightbox img {
+      width: 100%;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: var(--radius-lg);
+      background: #ffffff;
+      box-shadow: 0 30px 90px rgba(0,0,0,0.45);
+    }
+
+    @media (max-width: 1040px) {
+      .performance-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 920px) {
       .hero,
       .project-grid,
       .contact-wrap,
-      .skill-groups {
+      .skill-groups,
+      .impact-grid,
+      .principles-grid {
         grid-template-columns: 1fr;
       }
 
@@ -650,7 +800,8 @@
         width: 100%;
       }
 
-      .metrics {
+      .metrics,
+      .performance-strip {
         grid-template-columns: 1fr;
       }
     }
@@ -661,7 +812,7 @@
   <header>
     <div class="container nav">
       <a class="brand" href="#home" aria-label="Ahmad Kadri Portfolio Home">
-        <img src="ahmad.jpg" alt="Ahmad Kadri">
+        <img class="openable-image" src="ahmad.jpg" alt="Ahmad Kadri">
         <div>
           <h1>Ahmad Kadri</h1>
           <span>Senior Backend Engineer</span>
@@ -674,6 +825,7 @@
       <nav aria-label="Main navigation">
         <ul>
           <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#impact">Impact</a></li>
           <li><a href="#skills">Stack</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a class="nav-cv" href="Ahmad_kadri_Lebenslauf.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
@@ -686,31 +838,31 @@
   <main id="home">
     <section class="hero container">
       <div>
-        <div class="hero-badge">Java • Spring Boot • Security • Scalable Systems</div>
+        <div class="hero-badge">Java • Spring Boot • Security • Performance • Scalable Systems</div>
 
         <h2>
-          Senior backend engineering for
-          <span>real business systems.</span>
+          I design backend systems that are
+          <span>secure, scalable, measurable, and production-ready.</span>
         </h2>
 
         <p>
-          I design and build secure, maintainable, production-ready backend platforms using Java,
-          Spring Boot, REST APIs, authentication, clean architecture, testing, Docker, and cloud-ready deployment.
+          Backend engineer focused on architecture, security, performance, REST APIs, clean domain logic,
+          Dockerized deployment, and reliable systems that support real business operations.
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-primary" href="#projects">View Case Studies</a>
           <a class="btn btn-outline" href="Ahmad_kadri_Lebenslauf.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
           <a class="btn btn-outline" href="https://github.com/ahmadkadri978" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </div>
 
       <aside class="hero-panel">
-        <img class="profile-img" src="ahmad.jpg" alt="Ahmad Kadri profile photo">
+        <img class="profile-img openable-image" src="ahmad.jpg" alt="Ahmad Kadri profile photo">
 
         <h3>Backend-focused. Architecture-minded.</h3>
         <p>
-          I build backend systems with strong API design, clear domain logic,
+          I build backend systems with strong API design, clear domain boundaries,
           reliable security, structured testing, and deployment awareness.
         </p>
 
@@ -746,7 +898,7 @@
       <div class="expertise-grid">
         <article class="expertise-card">
           <h3>System Architecture</h3>
-          <p>Clean service layers, DTO-based APIs, domain-driven structure, pagination, validation, and maintainable modules.</p>
+          <p>Clean service layers, DTO-based APIs, domain boundaries, pagination, validation, and maintainable modules.</p>
         </article>
 
         <article class="expertise-card">
@@ -757,6 +909,64 @@
         <article class="expertise-card">
           <h3>Production Readiness</h3>
           <p>Docker Compose, Nginx, CI/CD, Swagger, Redis caching, logging, exception handling, and automated testing.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="impact" class="container">
+      <p class="eyebrow">Engineering Impact</p>
+      <h2 class="section-title">I focus on backend decisions that matter in production.</h2>
+      <p class="section-text">
+        Beyond building features, I care about reliability, observability, API contracts,
+        security boundaries, testability, and deployment behavior.
+      </p>
+
+      <div class="impact-grid">
+        <article class="impact-card">
+          <h3>API Contracts & Maintainability</h3>
+          <p>Designed REST APIs with DTO-based request/response contracts, validation, pagination, and clear service boundaries.</p>
+        </article>
+
+        <article class="impact-card">
+          <h3>Security by Design</h3>
+          <p>Implemented protected workflows using JWT, OAuth2, Auth0, Spring Security, role-based access, and secure cookies.</p>
+        </article>
+
+        <article class="impact-card">
+          <h3>Deployment-Aware Engineering</h3>
+          <p>Built Dockerized environments with Nginx reverse proxy, externalized state, and cloud-ready architecture.</p>
+        </article>
+
+        <article class="impact-card">
+          <h3>Performance Validation</h3>
+          <p>Validated backend stability using K6 and JMeter performance testing, latency metrics, error rate checks, and soak tests.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="principles" class="container">
+      <p class="eyebrow">Backend Principles</p>
+      <h2 class="section-title">Principles behind my engineering decisions.</h2>
+
+      <div class="principles-grid">
+        <article class="principle-card">
+          <h3>Secure by default</h3>
+          <p>Authentication, authorization, validation, and error handling are treated as core system design, not afterthoughts.</p>
+        </article>
+
+        <article class="principle-card">
+          <h3>Stateless where possible</h3>
+          <p>Backend services should be easier to scale horizontally, with shared state handled by databases or external services.</p>
+        </article>
+
+        <article class="principle-card">
+          <h3>DTO-first API contracts</h3>
+          <p>Controllers should expose stable contracts and never leak internal entities or persistence models directly.</p>
+        </article>
+
+        <article class="principle-card">
+          <h3>Observable and testable services</h3>
+          <p>Logging, validation, exception handling, unit tests, integration tests, and performance tests improve reliability.</p>
         </article>
       </div>
     </section>
@@ -834,14 +1044,48 @@
       </p>
 
       <div class="projects">
-        <article class="project">
-          <h3>Restaurant Operator System</h3>
+        <article class="project featured-project">
+          <div class="case-label">Featured Case Study</div>
+
+          <h3>Restaurant Operating System</h3>
 
           <p class="project-summary">
-            A full-stack restaurant management and QR ordering platform that allows customers
-            to scan a table QR code, browse the menu, place orders, and request service directly from their phone.
-            Staff receive real-time notifications and manage orders from an operator dashboard.
+            A production-oriented restaurant QR ordering platform built with Spring Boot, JavaScript,
+            Docker Compose, Nginx, Redis, and Firebase Cloud Messaging. The system supports QR table ordering,
+            real-time staff notifications, table sessions, order status tracking, owner statistics, and super admin operations.
           </p>
+
+          <p class="project-summary">
+            The architecture was designed around stateless backend scaling, externalized state,
+            reverse proxy routing, and stability validation through K6 soak testing.
+          </p>
+
+          <div class="performance-strip">
+            <div class="performance-card">
+              <strong>11,987</strong>
+              <span>Total Requests</span>
+            </div>
+
+            <div class="performance-card">
+              <strong>4,441</strong>
+              <span>Orders Created</span>
+            </div>
+
+            <div class="performance-card">
+              <strong>51ms</strong>
+              <span>P95 Latency</span>
+            </div>
+
+            <div class="performance-card">
+              <strong>0.09%</strong>
+              <span>Error Rate</span>
+            </div>
+
+            <div class="performance-card">
+              <strong>30 min</strong>
+              <span>Soak Test</span>
+            </div>
+          </div>
 
           <div class="project-grid">
             <div class="project-box">
@@ -885,42 +1129,46 @@
             <span>K6 Load Testing</span>
           </div>
 
+          <div class="project-actions">
+            <a class="btn btn-outline" href="#contact">Code Available on Request</a>
+          </div>
+
           <h4 class="screenshots-title">Screenshots & Architecture Evidence</h4>
 
           <div class="screenshots-grid">
             <figure class="screenshot">
               <figcaption>Statistics - Owner dashboard</figcaption>
-              <img src="restaurant-statistics-owner-dashboard.jpg" alt="Statistics Owner dashboard" loading="lazy">
+              <img class="openable-image" src="restaurant-statistics-owner-dashboard.jpg" alt="Statistics - Owner dashboard" loading="lazy">
             </figure>
 
             <figure class="screenshot">
               <figcaption>Order status</figcaption>
-              <img src="restaurant-order-status.jpg" alt="Order status" loading="lazy">
+              <img class="openable-image" src="restaurant-order-status.jpg" alt="Order status" loading="lazy">
             </figure>
 
             <figure class="screenshot">
               <figcaption>Staff dashboard</figcaption>
-              <img src="restaurant-staff-dashboard.jpg" alt="Staff dashboard" loading="lazy">
+              <img class="openable-image" src="restaurant-staff-dashboard.jpg" alt="Staff dashboard" loading="lazy">
             </figure>
 
             <figure class="screenshot">
               <figcaption>Super Admin Dashboard</figcaption>
-              <img src="restaurant-super-admin-dashboard.jpg" alt="Super Admin Dashboard" loading="lazy">
+              <img class="openable-image" src="restaurant-super-admin-dashboard.jpg" alt="Super Admin Dashboard" loading="lazy">
             </figure>
 
             <figure class="screenshot screenshot-document">
               <figcaption>Production-Ready Dockerized Scaling</figcaption>
-              <img src="1000136779.jpg" alt="Production-ready Dockerized scaling architecture" loading="lazy">
+              <img class="openable-image" src="1000136779.jpg" alt="Production-Ready Dockerized Scaling" loading="lazy">
             </figure>
 
             <figure class="screenshot screenshot-document">
               <figcaption>Performance Key Metrics</figcaption>
-              <img src="1000136780.jpg" alt="Performance key metrics report" loading="lazy">
+              <img class="openable-image" src="1000136780.jpg" alt="Performance Key Metrics" loading="lazy">
             </figure>
 
             <figure class="screenshot screenshot-document">
               <figcaption>Soak Test - System Stability Analysis</figcaption>
-              <img src="1000136781.jpg" alt="Soak test system stability analysis report" loading="lazy">
+              <img class="openable-image" src="1000136781.jpg" alt="Soak Test - System Stability Analysis" loading="lazy">
             </figure>
           </div>
         </article>
@@ -1036,52 +1284,52 @@
           <div class="screenshots-grid">
             <figure class="screenshot">
               <figcaption>Home Page</figcaption>
-              <img src="Home-page.jpg" alt="Digital library home page" loading="lazy">
+              <img class="openable-image" src="Home-page.jpg" alt="Digital library home page" loading="lazy">
             </figure>
 
             <figure class="screenshot">
               <figcaption>Books List</figcaption>
-              <img src="books-page.jpg" alt="Books list page" loading="lazy">
+              <img class="openable-image" src="books-page.jpg" alt="Books list page" loading="lazy">
             </figure>
 
             <figure class="screenshot">
               <figcaption>Search Books</figcaption>
-              <img src="search-page.jpg" alt="Search books page" loading="lazy">
+              <img class="openable-image" src="search-page.jpg" alt="Search books page" loading="lazy">
             </figure>
 
             <figure class="screenshot">
               <figcaption>User Reservations</figcaption>
-              <img src="reservations-page.jpg" alt="User reservations page" loading="lazy">
+              <img class="openable-image" src="reservations-page.jpg" alt="User reservations page" loading="lazy">
             </figure>
 
             <figure class="screenshot">
               <figcaption>Duplicate Reservation Error</figcaption>
-              <img src="duplicated-reservation-error.jpg" alt="Duplicate reservation error page" loading="lazy">
+              <img class="openable-image" src="duplicated-reservation-error.jpg" alt="Duplicate reservation error page" loading="lazy">
             </figure>
 
             <figure class="screenshot">
               <figcaption>Admin Reservations</figcaption>
-              <img src="reservations-admin-page.jpg" alt="Admin reservations page" loading="lazy">
+              <img class="openable-image" src="reservations-admin-page.jpg" alt="Admin reservations page" loading="lazy">
             </figure>
 
             <figure class="screenshot">
               <figcaption>Admin Manage Books</figcaption>
-              <img src="admin-books-page.jpg" alt="Admin manage books page" loading="lazy">
+              <img class="openable-image" src="admin-books-page.jpg" alt="Admin manage books page" loading="lazy">
             </figure>
 
             <figure class="screenshot">
               <figcaption>Add Book</figcaption>
-              <img src="admin-add-book-page.jpg" alt="Add book page" loading="lazy">
+              <img class="openable-image" src="admin-add-book-page.jpg" alt="Add book page" loading="lazy">
             </figure>
 
             <figure class="screenshot">
               <figcaption>Edit Book</figcaption>
-              <img src="admin-edit-book-page.jpg" alt="Edit book page" loading="lazy">
+              <img class="openable-image" src="admin-edit-book-page.jpg" alt="Edit book page" loading="lazy">
             </figure>
 
             <figure class="screenshot">
               <figcaption>Manage Users</figcaption>
-              <img src="admin-Manage-users-page.jpg" alt="Manage users page" loading="lazy">
+              <img class="openable-image" src="admin-Manage-users-page.jpg" alt="Manage users page" loading="lazy">
             </figure>
           </div>
         </article>
@@ -1093,7 +1341,7 @@
       <h2 class="section-title">Let’s build serious backend systems.</h2>
       <p class="section-text">
         Open to backend engineering opportunities focused on Java, Spring Boot,
-        APIs, security, architecture, and production-ready systems.
+        APIs, security, architecture, performance, and production-ready systems.
       </p>
 
       <div class="contact-wrap">
@@ -1134,5 +1382,58 @@
   <footer>
     <p>&copy; 2026 Ahmad Kadri | Senior Backend Engineer Portfolio</p>
   </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-content">
+      <div class="lightbox-top">
+        <div class="lightbox-title" id="lightbox-title">Image Preview</div>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close image preview">&times;</button>
+      </div>
+      <img id="lightbox-image" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    const lightboxTitle = document.getElementById("lightbox-title");
+    const lightboxClose = document.getElementById("lightbox-close");
+
+    document.querySelectorAll(".openable-image").forEach((image) => {
+      image.addEventListener("click", () => {
+        const figure = image.closest("figure");
+        const caption = figure ? figure.querySelector("figcaption")?.textContent : image.alt;
+
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt || "Image preview";
+        lightboxTitle.textContent = caption || image.alt || "Image Preview";
+
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+      document.body.style.overflow = "";
+    }
+
+    lightboxClose.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+        closeLightbox();
+      }
+    });
+  </script>
 </body>
 </html>
