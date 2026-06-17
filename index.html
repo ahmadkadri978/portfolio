@@ -4,30 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Ahmad Kadri | Backend Software Engineer</title>
-  <meta name="description" content="Ahmad Kadri - Backend Software Engineer Portfolio showcasing Java, Spring Boot, REST APIs, Docker, AWS, JWT, Auth0, CI/CD and scalable backend systems.">
+  <title>Ahmad Kadri | Senior Backend Engineer</title>
+  <meta name="description" content="Ahmad Kadri - Senior Backend Engineer specialized in Java, Spring Boot, REST APIs, Security, Docker, Nginx, CI/CD and scalable backend systems.">
 
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-main: #0b1020;
-      --bg-card: rgba(255, 255, 255, 0.08);
-      --bg-card-solid: #111827;
-      --text-main: #f8fafc;
-      --text-muted: #cbd5e1;
-      --text-dark: #111827;
+      --bg: #020617;
+      --bg-soft: #0f172a;
+      --card: rgba(15, 23, 42, 0.78);
+      --card-light: rgba(255, 255, 255, 0.06);
+      --border: rgba(148, 163, 184, 0.22);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --muted-2: #94a3b8;
       --primary: #38bdf8;
-      --primary-dark: #0284c7;
       --accent: #f59e0b;
-      --border: rgba(255, 255, 255, 0.14);
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
-      --radius-lg: 24px;
-      --radius-md: 16px;
-      --max-width: 1120px;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max: 1160px;
     }
 
     * {
@@ -41,13 +42,13 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.7;
-      color: var(--text-main);
+      font-family: "Inter", sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), transparent 35%),
-        radial-gradient(circle at top right, rgba(245, 158, 11, 0.16), transparent 30%),
-        linear-gradient(135deg, #020617 0%, #0b1020 50%, #111827 100%);
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 34%),
+        radial-gradient(circle at top right, rgba(245, 158, 11, 0.14), transparent 30%),
+        linear-gradient(135deg, #020617 0%, #0f172a 52%, #111827 100%);
+      color: var(--text);
+      line-height: 1.7;
       min-height: 100vh;
     }
 
@@ -62,20 +63,22 @@
       display: block;
     }
 
-    /* Header */
+    .container {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
     header {
       position: sticky;
       top: 0;
-      z-index: 999;
-      backdrop-filter: blur(18px);
+      z-index: 1000;
       background: rgba(2, 6, 23, 0.82);
+      backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
 
-    .navbar {
-      max-width: var(--max-width);
-      margin: auto;
-      padding: 0.9rem 1.5rem;
+    .nav {
+      min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -86,121 +89,132 @@
       display: flex;
       align-items: center;
       gap: 0.9rem;
-      min-width: max-content;
     }
 
     .brand img {
-      width: 56px;
-      height: 56px;
+      width: 54px;
+      height: 54px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.12);
+      border: 2px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.12);
     }
 
     .brand h1 {
       font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
       line-height: 1.1;
-      font-weight: 800;
-      letter-spacing: -0.02em;
     }
 
     .brand span {
       display: block;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 0.15rem;
-      font-weight: 500;
+      color: var(--muted-2);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 0.12rem;
     }
 
     .menu-toggle {
       display: none;
     }
 
-    .menu-button {
+    .menu-btn {
       display: none;
-      cursor: pointer;
       font-size: 1.7rem;
-      color: white;
+      cursor: pointer;
+      color: var(--text);
     }
 
     nav ul {
+      list-style: none;
       display: flex;
       align-items: center;
       gap: 0.35rem;
-      list-style: none;
     }
 
     nav a {
       display: inline-flex;
-      padding: 0.65rem 0.85rem;
+      align-items: center;
+      padding: 0.62rem 0.85rem;
       border-radius: 999px;
-      color: var(--text-muted);
-      font-size: 0.93rem;
-      font-weight: 600;
-      transition: 0.25s ease;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: 0.22s ease;
     }
 
     nav a:hover {
-      color: white;
+      color: var(--text);
       background: rgba(255, 255, 255, 0.08);
     }
 
     .nav-cv {
       color: #020617;
       background: linear-gradient(135deg, var(--primary), #67e8f9);
-      box-shadow: 0 10px 28px rgba(56, 189, 248, 0.25);
-    }
-
-    .nav-cv:hover {
-      color: #020617;
-      background: linear-gradient(135deg, #67e8f9, var(--primary));
-      transform: translateY(-1px);
-    }
-
-    /* Layout */
-    main {
-      max-width: var(--max-width);
-      margin: auto;
-      padding: 0 1.5rem;
+      box-shadow: 0 14px 35px rgba(56, 189, 248, 0.22);
     }
 
     section {
-      padding: 5rem 0;
-      scroll-margin-top: 96px;
+      padding: 5.5rem 0;
+      scroll-margin-top: 100px;
     }
 
-    .section-header {
-      margin-bottom: 2rem;
-    }
-
-    .section-kicker {
+    .eyebrow {
       color: var(--primary);
-      font-size: 0.85rem;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 800;
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.7rem;
     }
 
-    h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -0.05em;
-      line-height: 1.1;
-      margin-bottom: 0.8rem;
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.05;
+      letter-spacing: -0.06em;
+      margin-bottom: 1rem;
     }
 
-    .section-description {
-      max-width: 720px;
-      color: var(--text-muted);
+    .section-text {
+      max-width: 760px;
+      color: var(--muted);
       font-size: 1.05rem;
     }
 
-    /* Hero */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0.82rem 1.12rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 900;
+      transition: 0.22s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #67e8f9);
+      color: #020617;
+      box-shadow: 0 20px 50px rgba(56, 189, 248, 0.24);
+    }
+
+    .btn-primary:hover,
+    .btn-outline:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      color: var(--text);
+      border-color: var(--border);
+      background: rgba(255, 255, 255, 0.055);
+    }
+
     .hero {
-      min-height: calc(100vh - 84px);
+      min-height: calc(100vh - 82px);
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
+      grid-template-columns: 1.2fr 0.8fr;
       align-items: center;
       gap: 3rem;
       padding: 5rem 0;
@@ -208,369 +222,332 @@
 
     .hero-badge {
       display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.45rem 0.8rem;
-      border: 1px solid var(--border);
+      padding: 0.5rem 0.85rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--text-muted);
-      font-weight: 600;
+      border: 1px solid rgba(56, 189, 248, 0.26);
+      background: rgba(56, 189, 248, 0.08);
+      color: #e0f2fe;
       font-size: 0.9rem;
-      margin-bottom: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 1.3rem;
     }
 
     .hero h2 {
-      font-size: clamp(2.7rem, 7vw, 5.8rem);
-      line-height: 0.95;
-      max-width: 820px;
+      max-width: 850px;
+      font-size: clamp(2.8rem, 7vw, 5.9rem);
+      line-height: 0.93;
+      letter-spacing: -0.08em;
+      font-weight: 900;
     }
 
     .hero h2 span {
       color: var(--primary);
     }
 
-    .hero-text {
-      color: var(--text-muted);
-      max-width: 720px;
-      font-size: 1.15rem;
+    .hero p {
+      max-width: 760px;
       margin-top: 1.4rem;
+      color: var(--muted);
+      font-size: 1.13rem;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 0.9rem;
       margin-top: 2rem;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.85rem 1.15rem;
-      border-radius: 999px;
-      font-weight: 800;
-      transition: 0.25s ease;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      color: #020617;
-      background: linear-gradient(135deg, var(--primary), #67e8f9);
-      box-shadow: 0 20px 40px rgba(56, 189, 248, 0.24);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 24px 60px rgba(56, 189, 248, 0.32);
-    }
-
-    .btn-secondary {
-      color: white;
-      border-color: var(--border);
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.12);
-      transform: translateY(-2px);
-    }
-
-    .hero-card {
+    .hero-panel {
       border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+      background: linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.045));
+      border-radius: var(--radius-xl);
+      padding: 1.4rem;
       box-shadow: var(--shadow);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      position: relative;
       overflow: hidden;
+      position: relative;
     }
 
-    .hero-card::before {
+    .hero-panel::before {
       content: "";
       position: absolute;
-      inset: -80px -80px auto auto;
-      width: 180px;
-      height: 180px;
+      top: -70px;
+      right: -70px;
+      width: 190px;
+      height: 190px;
       border-radius: 50%;
-      background: rgba(56, 189, 248, 0.18);
-      filter: blur(20px);
+      background: rgba(56, 189, 248, 0.2);
+      filter: blur(22px);
     }
 
-    .hero-card img {
-      width: 140px;
-      height: 140px;
-      border-radius: 24px;
+    .profile-img {
+      width: 138px;
+      height: 138px;
       object-fit: cover;
+      border-radius: 26px;
       border: 1px solid var(--border);
       margin-bottom: 1.2rem;
+      position: relative;
+      z-index: 1;
     }
 
-    .hero-card h3 {
-      font-size: 1.4rem;
+    .hero-panel h3,
+    .hero-panel p,
+    .metrics {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-panel h3 {
+      font-size: 1.45rem;
+      letter-spacing: -0.04em;
       margin-bottom: 0.4rem;
     }
 
-    .hero-card p {
-      color: var(--text-muted);
-      margin-bottom: 1rem;
+    .hero-panel p {
+      margin: 0;
+      font-size: 0.98rem;
     }
 
-    .stats {
+    .metrics {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 0.8rem;
       margin-top: 1.2rem;
     }
 
-    .stat {
+    .metric {
       padding: 1rem;
-      border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.055);
     }
 
-    .stat strong {
+    .metric strong {
       display: block;
-      font-size: 1.35rem;
-      color: white;
+      color: var(--text);
+      font-size: 1.15rem;
+      font-weight: 900;
+      line-height: 1.2;
     }
 
-    .stat span {
-      color: var(--text-muted);
-      font-size: 0.85rem;
+    .metric span {
+      color: var(--muted-2);
+      font-size: 0.82rem;
+      font-weight: 600;
     }
 
-    /* About */
-    .about-grid {
+    .expertise-grid,
+    .skill-groups {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
+      margin-top: 2rem;
     }
 
-    .about-card {
-      padding: 1.4rem;
-      border-radius: var(--radius-md);
+    .skill-groups {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .expertise-card,
+    .skill-group,
+    .project-box,
+    .contact-card {
+      padding: 1.35rem;
       border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-lg);
+      background: var(--card-light);
     }
 
-    .about-card h3 {
-      margin-bottom: 0.6rem;
-      font-size: 1.1rem;
+    .expertise-card h3,
+    .skill-group h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.55rem;
+      letter-spacing: -0.02em;
     }
 
-    .about-card p {
-      color: var(--text-muted);
+    .expertise-card p {
+      color: var(--muted);
+      font-size: 0.96rem;
     }
 
-    /* Skills */
-    .skills-list {
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
-      list-style: none;
+      gap: 0.6rem;
     }
 
-    .skills-list li {
-      padding: 0.65rem 0.95rem;
+    .tags span {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 0.72rem;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.07);
-      color: var(--text-main);
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: 0.25s ease;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(255, 255, 255, 0.055);
+      color: #e2e8f0;
+      font-size: 0.86rem;
+      font-weight: 750;
     }
 
-    .skills-list li:hover {
-      transform: translateY(-2px);
-      border-color: rgba(56, 189, 248, 0.55);
-      background: rgba(56, 189, 248, 0.12);
-    }
-
-    /* Projects */
-    .projects-grid {
+    .projects {
       display: grid;
-      gap: 1.5rem;
+      gap: 1.35rem;
+      margin-top: 2.2rem;
     }
 
     .project {
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      background: rgba(255, 255, 255, 0.07);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.04));
       box-shadow: var(--shadow);
-      padding: clamp(1.4rem, 4vw, 2rem);
-      overflow: hidden;
-    }
-
-    .project-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1.5rem;
-      margin-bottom: 1rem;
+      padding: clamp(1.35rem, 3vw, 2rem);
     }
 
     .project h3 {
-      font-size: clamp(1.35rem, 3vw, 1.8rem);
-      letter-spacing: -0.03em;
-      margin-bottom: 0.6rem;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      letter-spacing: -0.05em;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
     }
 
-    .project p,
-    .project li {
-      color: var(--text-muted);
+    .project-summary {
+      color: var(--muted);
+      max-width: 920px;
+      margin-bottom: 1rem;
     }
 
-    .project ul {
-      margin: 0.8rem 0 1rem 1.2rem;
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.2rem 0;
     }
 
-    .status-pill {
-      min-width: max-content;
-      display: inline-flex;
-      align-items: center;
-      padding: 0.45rem 0.75rem;
+    .project-box h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.65rem;
+      color: var(--text);
+    }
+
+    .project-box ul {
+      list-style: none;
+      display: grid;
+      gap: 0.42rem;
+    }
+
+    .project-box li {
+      color: var(--muted);
+      font-size: 0.94rem;
+      position: relative;
+      padding-left: 1.05rem;
+    }
+
+    .project-box li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.65rem;
+      width: 6px;
+      height: 6px;
       border-radius: 999px;
-      color: #fde68a;
-      background: rgba(245, 158, 11, 0.12);
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      font-size: 0.82rem;
-      font-weight: 800;
+      background: var(--primary);
     }
 
-    .tech-stack {
+    .project-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.55rem;
-      margin: 1rem 0 1.2rem;
-    }
-
-    .tech-stack span {
-      color: #e0f2fe;
-      background: rgba(14, 165, 233, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.28);
-      padding: 0.38rem 0.65rem;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 700;
-    }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      width: fit-content;
-      margin-top: 0.7rem;
-      background: linear-gradient(135deg, var(--primary), #67e8f9);
-      color: #020617;
-      padding: 0.78rem 1rem;
-      border-radius: 999px;
-      font-weight: 800;
-      transition: 0.25s ease;
-      box-shadow: 0 18px 34px rgba(56, 189, 248, 0.18);
-    }
-
-    .project-link:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 24px 45px rgba(56, 189, 248, 0.28);
+      gap: 0.8rem;
+      margin-top: 1.2rem;
     }
 
     video {
       width: 100%;
-      border-radius: var(--radius-md);
-      margin: 1.2rem 0;
+      margin-top: 1.2rem;
+      border-radius: var(--radius-lg);
       border: 1px solid var(--border);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
       background: #000;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.38);
     }
 
-    /* Screenshots */
     .screenshots-title {
-      margin-top: 3rem;
-      margin-bottom: 1.2rem;
-      font-size: 1.5rem;
+      font-size: 1.15rem;
+      margin: 1.7rem 0 1rem;
+      letter-spacing: -0.02em;
     }
 
     .screenshots-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
       gap: 1rem;
     }
 
-    .screenshot-item {
-      overflow: hidden;
-      border-radius: var(--radius-md);
+    .screenshot {
+      border-radius: var(--radius-lg);
       border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.06);
-      transition: 0.25s ease;
+      overflow: hidden;
+      background: rgba(255,255,255,0.045);
+      transition: 0.22s ease;
     }
 
-    .screenshot-item:hover {
+    .screenshot:hover {
       transform: translateY(-4px);
-      border-color: rgba(56, 189, 248, 0.48);
+      border-color: rgba(56, 189, 248, 0.5);
     }
 
-    .screenshot-item figcaption {
-      padding: 0.8rem 0.9rem;
-      font-weight: 800;
-      color: white;
+    .screenshot figcaption {
+      padding: 0.78rem 0.9rem;
       border-bottom: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 850;
+      font-size: 0.9rem;
     }
 
-    .screenshot-item img {
+    .screenshot img {
       width: 100%;
       aspect-ratio: 16 / 10;
       object-fit: cover;
-      transition: 0.35s ease;
+      transition: 0.3s ease;
     }
 
-    .screenshot-item:hover img {
-      transform: scale(1.04);
+    .screenshot:hover img {
+      transform: scale(1.035);
     }
 
-    /* Contact */
-    .contact-grid {
+    .contact-wrap {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
+      margin-top: 2rem;
     }
 
     .contact-card {
-      padding: 1.3rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.07);
-      transition: 0.25s ease;
+      transition: 0.22s ease;
     }
 
     .contact-card:hover {
       transform: translateY(-3px);
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.09);
     }
 
     .contact-card span {
       display: block;
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      color: var(--muted-2);
+      font-size: 0.85rem;
+      font-weight: 700;
       margin-bottom: 0.25rem;
     }
 
     .contact-card strong {
-      color: white;
+      color: var(--text);
       word-break: break-word;
     }
 
-    .cv-box {
-      margin-top: 1.5rem;
-      padding: 1.4rem;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(245, 158, 11, 0.08));
+    .cv-strip {
+      margin-top: 1rem;
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.13), rgba(245, 158, 11, 0.08));
+      padding: 1.35rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -578,65 +555,63 @@
       flex-wrap: wrap;
     }
 
-    .cv-box p {
-      color: var(--text-muted);
+    .cv-strip p {
+      color: var(--muted);
+      margin-top: 0.2rem;
     }
 
     footer {
       border-top: 1px solid var(--border);
-      background: rgba(2, 6, 23, 0.8);
-      color: var(--text-muted);
+      background: rgba(2, 6, 23, 0.84);
       text-align: center;
-      padding: 1.5rem;
+      color: var(--muted-2);
+      padding: 1.5rem 1rem;
       margin-top: 2rem;
+      font-size: 0.92rem;
     }
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .hero-card {
-        max-width: 460px;
-      }
-
-      .about-grid,
-      .contact-grid {
+    @media (max-width: 920px) {
+      .hero,
+      .project-grid,
+      .contact-wrap,
+      .skill-groups {
         grid-template-columns: 1fr;
       }
 
-      .project-top {
-        flex-direction: column;
+      .expertise-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
+        max-width: 520px;
       }
     }
 
     @media (max-width: 760px) {
-      .navbar {
+      .nav {
         flex-wrap: wrap;
+        padding: 0.85rem 0;
       }
 
-      .menu-button {
+      .menu-btn {
         display: block;
         margin-left: auto;
       }
 
       nav {
-        width: 100%;
         display: none;
+        width: 100%;
       }
 
       nav ul {
         flex-direction: column;
         align-items: stretch;
-        gap: 0.45rem;
-        padding-top: 1rem;
+        padding-top: 0.85rem;
       }
 
       nav a {
         justify-content: center;
-        background: rgba(255, 255, 255, 0.06);
+        background: rgba(255,255,255,0.055);
       }
 
       .menu-toggle:checked ~ nav {
@@ -644,23 +619,23 @@
       }
 
       section {
-        padding: 3.5rem 0;
+        padding: 4rem 0;
       }
 
       .hero {
-        padding-top: 3.5rem;
+        padding: 3.6rem 0;
       }
 
-      .hero-actions {
+      .hero-actions,
+      .project-actions {
         flex-direction: column;
       }
 
-      .btn,
-      .project-link {
+      .btn {
         width: 100%;
       }
 
-      .stats {
+      .metrics {
         grid-template-columns: 1fr;
       }
     }
@@ -669,22 +644,22 @@
 
 <body>
   <header>
-    <div class="navbar">
+    <div class="container nav">
       <a class="brand" href="#home" aria-label="Ahmad Kadri Portfolio Home">
-        <img src="ahmad.jpg" alt="Portrait of Ahmad Kadri" />
+        <img src="ahmad.jpg" alt="Ahmad Kadri">
         <div>
           <h1>Ahmad Kadri</h1>
-          <span>Backend Software Engineer</span>
+          <span>Senior Backend Engineer</span>
         </div>
       </a>
 
-      <input class="menu-toggle" type="checkbox" id="menu-toggle" aria-label="Toggle navigation menu">
-      <label class="menu-button" for="menu-toggle" aria-hidden="true">☰</label>
+      <input class="menu-toggle" type="checkbox" id="menu-toggle">
+      <label class="menu-btn" for="menu-toggle" aria-label="Open navigation menu">☰</label>
 
       <nav aria-label="Main navigation">
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#skills">Stack</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a class="nav-cv" href="Ahmad_kadri_Lebenslauf.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -694,201 +669,317 @@
   </header>
 
   <main id="home">
-    <section class="hero" aria-label="Hero section">
+    <section class="hero container">
       <div>
-        <div class="hero-badge">Available for Backend & Java opportunities</div>
+        <div class="hero-badge">Java • Spring Boot • Security • Scalable Systems</div>
 
         <h2>
-          Building secure, scalable
-          <span>backend systems</span>.
+          Senior backend engineering for
+          <span>real business systems.</span>
         </h2>
 
-        <p class="hero-text">
-          I am a backend-focused software engineer specializing in Java, Spring Boot,
-          REST APIs, security, Docker, database-driven systems, testing, and clean architecture.
-          I build systems that are practical, maintainable, and aligned with real business needs.
+        <p>
+          I design and build secure, maintainable, production-ready backend platforms using Java,
+          Spring Boot, REST APIs, authentication, clean architecture, testing, Docker, and cloud-ready deployment.
         </p>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="#projects">View Projects</a>
-          <a class="btn btn-secondary" href="Ahmad_kadri_Lebenslauf.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
-          <a class="btn btn-secondary" href="https://github.com/ahmadkadri978" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="btn btn-outline" href="Ahmad_kadri_Lebenslauf.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
+          <a class="btn btn-outline" href="https://github.com/ahmadkadri978" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </div>
 
-      <aside class="hero-card" aria-label="Profile summary card">
-        <img src="ahmad.jpg" alt="Ahmad Kadri profile photo">
-        <h3>Ahmad Kadri</h3>
+      <aside class="hero-panel">
+        <img class="profile-img" src="ahmad.jpg" alt="Ahmad Kadri profile photo">
+
+        <h3>Backend-focused. Architecture-minded.</h3>
         <p>
-          Backend Software Engineer focused on Spring Boot applications,
-          secure authentication, clean APIs, deployment, and production-ready architecture.
+          I build backend systems with strong API design, clear domain logic,
+          reliable security, structured testing, and deployment awareness.
         </p>
 
-        <div class="stats">
-          <div class="stat">
-            <strong>Java</strong>
-            <span>Main language</span>
+        <div class="metrics">
+          <div class="metric">
+            <strong>REST APIs</strong>
+            <span>Clean, documented endpoints</span>
           </div>
-          <div class="stat">
-            <strong>Spring</strong>
-            <span>Core backend stack</span>
+          <div class="metric">
+            <strong>Security</strong>
+            <span>JWT, OAuth2, Auth0</span>
           </div>
-          <div class="stat">
-            <strong>Docker</strong>
-            <span>Deployment ready</span>
+          <div class="metric">
+            <strong>DevOps</strong>
+            <span>Docker, Nginx, CI/CD</span>
           </div>
-          <div class="stat">
-            <strong>Testing</strong>
-            <span>Unit & integration</span>
+          <div class="metric">
+            <strong>Quality</strong>
+            <span>Testing, logging, validation</span>
           </div>
         </div>
       </aside>
     </section>
 
-    <section id="about">
-      <div class="section-header">
-        <p class="section-kicker">About</p>
-        <h2>Backend engineering with product awareness.</h2>
-        <p class="section-description">
-          I design and implement backend systems that are not only technically solid,
-          but also understandable, secure, testable, and ready to grow with the product.
-        </p>
-      </div>
+    <section id="expertise" class="container">
+      <p class="eyebrow">Expertise</p>
+      <h2 class="section-title">Backend systems built with clarity, security, and scale.</h2>
+      <p class="section-text">
+        My strength is turning business workflows into structured backend architecture:
+        APIs, database models, authentication flows, service layers, validation, testing, and deployment.
+      </p>
 
-      <div class="about-grid">
-        <article class="about-card">
-          <h3>Clean Architecture</h3>
-          <p>
-            I care about separation of concerns, DTOs, services, validation,
-            exception handling, logging, and maintainable code structure.
-          </p>
+      <div class="expertise-grid">
+        <article class="expertise-card">
+          <h3>System Architecture</h3>
+          <p>Clean service layers, DTO-based APIs, domain-driven structure, pagination, validation, and maintainable modules.</p>
         </article>
 
-        <article class="about-card">
-          <h3>Security First</h3>
-          <p>
-            Experience with Spring Security, JWT, Auth0, OAuth2, role-based access,
-            and secure authentication flows.
-          </p>
+        <article class="expertise-card">
+          <h3>Security & Access Control</h3>
+          <p>Spring Security, JWT, Auth0, OAuth2, role-based authorization, protected routes, and secure user flows.</p>
         </article>
 
-        <article class="about-card">
-          <h3>Production Mindset</h3>
-          <p>
-            I work with Docker, CI/CD, Swagger, SQL databases, caching,
-            testing, and deployment-oriented development.
-          </p>
+        <article class="expertise-card">
+          <h3>Production Readiness</h3>
+          <p>Docker Compose, Nginx, CI/CD, Swagger, Redis caching, logging, exception handling, and automated testing.</p>
         </article>
       </div>
     </section>
 
-    <section id="skills">
-      <div class="section-header">
-        <p class="section-kicker">Skills</p>
-        <h2>Technologies I work with.</h2>
-        <p class="section-description">
-          A practical backend stack focused on Java ecosystems, API development,
-          security, databases, testing, and deployment.
-        </p>
-      </div>
+    <section id="skills" class="container">
+      <p class="eyebrow">Technical Stack</p>
+      <h2 class="section-title">Practical tools for serious backend work.</h2>
+      <p class="section-text">
+        Technologies I use to build reliable APIs, secure platforms, database-driven applications, and deployable systems.
+      </p>
 
-      <ul class="skills-list">
-        <li>Java</li>
-        <li>Spring Boot</li>
-        <li>Spring Security</li>
-        <li>JWT / Auth0</li>
-        <li>OAuth2</li>
-        <li>REST APIs</li>
-        <li>Docker</li>
-        <li>MySQL</li>
-        <li>PostgreSQL</li>
-        <li>JPA / Hibernate</li>
-        <li>Swagger</li>
-        <li>JMeter</li>
-        <li>GitHub Actions</li>
-        <li>CI/CD</li>
-        <li>Unit Testing</li>
-        <li>Integration Testing</li>
-        <li>Redis Caching</li>
-        <li>Thymeleaf</li>
-        <li>AWS</li>
-        <li>Railway</li>
-      </ul>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h3>Backend</h3>
+          <div class="tags">
+            <span>Java</span>
+            <span>Spring Boot</span>
+            <span>REST APIs</span>
+            <span>Spring MVC</span>
+            <span>JPA / Hibernate</span>
+            <span>DTOs</span>
+            <span>Validation</span>
+            <span>Swagger</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Security</h3>
+          <div class="tags">
+            <span>Spring Security</span>
+            <span>JWT</span>
+            <span>Auth0</span>
+            <span>OAuth2</span>
+            <span>Role-Based Access</span>
+            <span>Cookie Authentication</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Data & Performance</h3>
+          <div class="tags">
+            <span>PostgreSQL</span>
+            <span>MySQL</span>
+            <span>Redis Caching</span>
+            <span>Pagination</span>
+            <span>JMeter</span>
+            <span>Query Optimization</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>DevOps & Integration</h3>
+          <div class="tags">
+            <span>Docker Compose</span>
+            <span>Nginx</span>
+            <span>GitHub Actions</span>
+            <span>CI/CD</span>
+            <span>AWS</span>
+            <span>Railway</span>
+            <span>JavaScript</span>
+            <span>Thymeleaf</span>
+            <span>Firebase Cloud Messaging</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="projects">
-      <div class="section-header">
-        <p class="section-kicker">Projects</p>
-        <h2>Selected backend projects.</h2>
-        <p class="section-description">
-          Real projects focused on authentication, role-based systems, APIs,
-          database design, deployment, caching, and business workflows.
-        </p>
-      </div>
+    <section id="projects" class="container">
+      <p class="eyebrow">Selected Projects</p>
+      <h2 class="section-title">Backend-heavy projects with real operational logic.</h2>
+      <p class="section-text">
+        These projects demonstrate API architecture, authentication, business workflows,
+        deployment setup, real-time notifications, and production-oriented backend thinking.
+      </p>
 
-      <div class="projects-grid">
+      <div class="projects">
         <article class="project">
-          <div class="project-top">
-            <div>
-              <h3>Rizq Platform — Local Services Marketplace</h3>
-              <p>
-                A full-stack web platform built to support local services.
-                It allows users to register, post services and jobs filtered by city and type,
-                while admins manage registration approvals.
-              </p>
+          <h3>Restaurant Operator System</h3>
+
+          <p class="project-summary">
+            A full-stack restaurant management and QR ordering platform that allows customers
+            to scan a table QR code, browse the menu, place orders, and request service directly from their phone.
+            Staff receive real-time notifications and manage orders from an operator dashboard.
+          </p>
+
+          <div class="project-grid">
+            <div class="project-box">
+              <h4>Core Features</h4>
+              <ul>
+                <li>QR-based table ordering</li>
+                <li>Digital menu browsing</li>
+                <li>Table session codes</li>
+                <li>Order status tracking</li>
+                <li>Service call system</li>
+                <li>Staff dashboard</li>
+              </ul>
             </div>
-            <span class="status-pill">Active Project</span>
+
+            <div class="project-box">
+              <h4>Architecture & Engineering</h4>
+              <ul>
+                <li>Spring Boot REST API backend</li>
+                <li>JavaScript responsive frontend</li>
+                <li>Firebase Cloud Messaging notifications</li>
+                <li>Docker Compose local environment</li>
+                <li>Nginx reverse proxy routing</li>
+                <li>Client-server architecture</li>
+              </ul>
+            </div>
           </div>
 
-          <p>
-            <strong>Features:</strong>
-            User registration with approval flow, role-based dashboards,
-            JWT authentication stored in cookies, posting/editing/deleting listings,
-            dynamic filtering by city and type, and responsive UI.
+          <div class="tags">
+            <span>Java</span>
+            <span>Spring Boot</span>
+            <span>REST APIs</span>
+            <span>JavaScript</span>
+            <span>Docker Compose</span>
+            <span>Nginx</span>
+            <span>Firebase Cloud Messaging</span>
+          </div>
+
+          <h4 class="screenshots-title">Screenshots</h4>
+
+          <div class="screenshots-grid">
+            <figure class="screenshot">
+              <figcaption>Statistics - Owner dashboard</figcaption>
+              <img src="restaurant-statistics-owner-dashboard.jpg" alt="Statistics Owner dashboard" loading="lazy">
+            </figure>
+
+            <figure class="screenshot">
+              <figcaption>Order status</figcaption>
+              <img src="restaurant-order-status.jpg" alt="Order status" loading="lazy">
+            </figure>
+
+            <figure class="screenshot">
+              <figcaption>Staff dashboard</figcaption>
+              <img src="restaurant-staff-dashboard.jpg" alt="Staff dashboard" loading="lazy">
+            </figure>
+
+            <figure class="screenshot">
+              <figcaption>Super Admin Dashboard</figcaption>
+              <img src="restaurant-super-admin-dashboard.jpg" alt="Super Admin Dashboard" loading="lazy">
+            </figure>
+          </div>
+        </article>
+
+        <article class="project">
+          <h3>Rizq Platform</h3>
+
+          <p class="project-summary">
+            A local services marketplace with registration approval, role-based access,
+            protected user dashboards, listing management, and city/type filtering.
+            Built as a structured Spring Boot application with security and business workflow focus.
           </p>
 
-          <div class="tech-stack">
+          <div class="project-grid">
+            <div class="project-box">
+              <h4>Core Features</h4>
+              <ul>
+                <li>User registration approval flow</li>
+                <li>Admin and user dashboards</li>
+                <li>Create, edit, and delete listings</li>
+                <li>City and service type filtering</li>
+                <li>Secure authentication via JWT cookies</li>
+              </ul>
+            </div>
+
+            <div class="project-box">
+              <h4>Architecture & Engineering</h4>
+              <ul>
+                <li>Layered Spring Boot architecture</li>
+                <li>DTO-based request/response design</li>
+                <li>Role-based authorization</li>
+                <li>PostgreSQL persistence</li>
+                <li>Thymeleaf server-rendered UI</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span>Java</span>
             <span>Spring Boot</span>
             <span>Spring Security</span>
             <span>JWT</span>
-            <span>Thymeleaf</span>
             <span>PostgreSQL</span>
-            <span>PaaS</span>
+            <span>Thymeleaf</span>
           </div>
 
-          <a class="project-link" href="https://github.com/ahmadkadri978/rizq-platform" target="_blank" rel="noopener noreferrer">
-            View Source Code on GitHub
-          </a>
+          <div class="project-actions">
+            <a class="btn btn-primary" href="https://github.com/ahmadkadri978/rizq-platform" target="_blank" rel="noopener noreferrer">
+              View Source Code
+            </a>
+          </div>
         </article>
 
         <article class="project">
-          <div class="project-top">
-            <div>
-              <h3>Digital Library Management System</h3>
-              <p>
-                Designed and implemented a complete backend infrastructure for a digital library platform,
-                focusing on scalability, security, and performance.
-              </p>
+          <h3>Digital Library Management System</h3>
+
+          <p class="project-summary">
+            A backend-focused digital library platform designed around authentication,
+            book management, reservations, caching, deployment, and performance testing.
+            Built with a production mindset and clear backend responsibilities.
+          </p>
+
+          <div class="project-grid">
+            <div class="project-box">
+              <h4>Core Features</h4>
+              <ul>
+                <li>Book management workflow</li>
+                <li>User reservation system</li>
+                <li>Admin management screens</li>
+                <li>Duplicate reservation protection</li>
+                <li>Role-based access control</li>
+              </ul>
             </div>
-            <span class="status-pill">Docker Setup</span>
+
+            <div class="project-box">
+              <h4>Architecture & Engineering</h4>
+              <ul>
+                <li>Spring Boot backend architecture</li>
+                <li>GitHub OAuth2 authentication</li>
+                <li>Redis caching layer</li>
+                <li>Docker-based local setup</li>
+                <li>AWS/Railway deployment experience</li>
+                <li>JMeter performance testing</li>
+              </ul>
+            </div>
           </div>
 
-          <p><strong>Key Highlights:</strong></p>
-          <ul>
-            <li>Developed secure, role-based authentication with GitHub OAuth2.</li>
-            <li>Deployed on AWS Fargate with MySQL RDS and load balancing, later migrated to Railway for cost efficiency.</li>
-            <li>Implemented Redis caching to enhance performance.</li>
-            <li>Conducted performance testing using Apache JMeter.</li>
-          </ul>
-
-          <div class="tech-stack">
+          <div class="tags">
+            <span>Java</span>
             <span>Spring Boot</span>
             <span>Spring Security</span>
             <span>OAuth2</span>
             <span>Redis</span>
             <span>Docker</span>
-            <span>AWS</span>
             <span>MySQL</span>
+            <span>AWS</span>
             <span>JMeter</span>
           </div>
 
@@ -897,83 +988,78 @@
             Your browser does not support the video tag.
           </video>
 
-          <p>
-            <em>Status:</em>
-            Currently available for <strong>local setup</strong> via Docker Compose —
-            full source code available on GitHub.
-          </p>
+          <div class="project-actions">
+            <a class="btn btn-primary" href="https://github.com/ahmadkadri978/Digital-Library-Management-System" target="_blank" rel="noopener noreferrer">
+              View Source Code
+            </a>
+          </div>
 
-          <a class="project-link" href="https://github.com/ahmadkadri978/Digital-Library-Management-System" target="_blank" rel="noopener noreferrer">
-            View Source Code on GitHub
-          </a>
-
-          <h3 class="screenshots-title">Project Screenshots</h3>
+          <h4 class="screenshots-title">Screenshots</h4>
 
           <div class="screenshots-grid">
-            <figure class="screenshot-item">
+            <figure class="screenshot">
               <figcaption>Home Page</figcaption>
-              <img src="Home-page.jpg" alt="Digital Library home page" loading="lazy">
+              <img src="Home-page.jpg" alt="Digital library home page" loading="lazy">
             </figure>
 
-            <figure class="screenshot-item">
+            <figure class="screenshot">
               <figcaption>Books List</figcaption>
               <img src="books-page.jpg" alt="Books list page" loading="lazy">
             </figure>
 
-            <figure class="screenshot-item">
+            <figure class="screenshot">
               <figcaption>Search Books</figcaption>
               <img src="search-page.jpg" alt="Search books page" loading="lazy">
             </figure>
 
-            <figure class="screenshot-item">
+            <figure class="screenshot">
               <figcaption>User Reservations</figcaption>
               <img src="reservations-page.jpg" alt="User reservations page" loading="lazy">
             </figure>
 
-            <figure class="screenshot-item">
+            <figure class="screenshot">
               <figcaption>Duplicate Reservation Error</figcaption>
               <img src="duplicated-reservation-error.jpg" alt="Duplicate reservation error page" loading="lazy">
             </figure>
 
-            <figure class="screenshot-item">
+            <figure class="screenshot">
               <figcaption>Admin Reservations</figcaption>
               <img src="reservations-admin-page.jpg" alt="Admin reservations page" loading="lazy">
             </figure>
 
-            <figure class="screenshot-item">
+            <figure class="screenshot">
               <figcaption>Admin Manage Books</figcaption>
               <img src="admin-books-page.jpg" alt="Admin manage books page" loading="lazy">
             </figure>
 
-            <figure class="screenshot-item">
+            <figure class="screenshot">
               <figcaption>Add Book</figcaption>
-              <img src="admin-add-book-page.jpg" alt="Admin add book page" loading="lazy">
+              <img src="admin-add-book-page.jpg" alt="Add book page" loading="lazy">
             </figure>
 
-            <figure class="screenshot-item">
+            <figure class="screenshot">
               <figcaption>Edit Book</figcaption>
-              <img src="admin-edit-book-page.jpg" alt="Admin edit book page" loading="lazy">
+              <img src="admin-edit-book-page.jpg" alt="Edit book page" loading="lazy">
             </figure>
 
-            <figure class="screenshot-item">
+            <figure class="screenshot">
               <figcaption>Manage Users</figcaption>
-              <img src="admin-Manage-users-page.jpg" alt="Admin manage users page" loading="lazy">
+              <img src="admin-Manage-users-page.jpg" alt="Manage users page" loading="lazy">
             </figure>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="contact">
-      <div class="section-header">
-        <p class="section-kicker">Contact</p>
-        <h2>Let’s connect.</h2>
-        <p class="section-description">
-          You can reach me by email, GitHub, or LinkedIn.
-        </p>
-      </div>
+    <section id="contact" class="container">
+      <p class="eyebrow">Contact</p>
+      <h2 class="section-title">Let’s build serious backend systems.</h2>
+      <p class="section-text">
+        Open to backend engineering opportunities focused on Java, Spring Boot,
+        APIs, security, architecture, and production-ready systems.
+      </p>
 
-      <div class="contact-grid">
+      <div class="contact-wrap">
         <a class="contact-card" href="mailto:ahmadkadri@web.de">
           <span>Email</span>
           <strong>ahmadkadri@web.de</strong>
@@ -988,15 +1074,20 @@
           <span>LinkedIn</span>
           <strong>linkedin.com/in/kadri-ahmad</strong>
         </a>
+
+        <a class="contact-card" href="Ahmad_kadri_Lebenslauf.pdf" target="_blank" rel="noopener noreferrer">
+          <span>CV</span>
+          <strong>Download PDF Resume</strong>
+        </a>
       </div>
 
-      <div class="cv-box">
+      <div class="cv-strip">
         <div>
-          <h3>Want the full profile?</h3>
-          <p>Download my CV as a PDF with experience, skills, and project details.</p>
+          <h3>Need the full profile?</h3>
+          <p>Download my CV for a complete overview of my backend skills, projects, and technical experience.</p>
         </div>
 
-        <a href="Ahmad_kadri_Lebenslauf.pdf" class="project-link" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn-primary" href="Ahmad_kadri_Lebenslauf.pdf" target="_blank" rel="noopener noreferrer">
           Download CV
         </a>
       </div>
@@ -1004,7 +1095,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 Ahmad Kadri | Backend Software Engineer Portfolio</p>
+    <p>&copy; 2026 Ahmad Kadri | Senior Backend Engineer Portfolio</p>
   </footer>
 </body>
 </html>
