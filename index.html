@@ -15,8 +15,6 @@
   <style>
     :root {
       --bg: #020617;
-      --bg-soft: #0f172a;
-      --card: rgba(15, 23, 42, 0.78);
       --card-light: rgba(255, 255, 255, 0.06);
       --border: rgba(148, 163, 184, 0.22);
       --text: #f8fafc;
@@ -513,6 +511,19 @@
       transform: scale(1.035);
     }
 
+    .screenshot-document {
+      grid-column: span 2;
+    }
+
+    .screenshot-document img {
+      aspect-ratio: auto;
+      height: auto;
+      max-height: 560px;
+      object-fit: contain;
+      background: #ffffff;
+      padding: 0.45rem;
+    }
+
     .contact-wrap {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -584,6 +595,10 @@
 
       .hero-panel {
         max-width: 520px;
+      }
+
+      .screenshot-document {
+        grid-column: span 1;
       }
     }
 
@@ -787,6 +802,7 @@
             <span>MySQL</span>
             <span>Redis Caching</span>
             <span>Pagination</span>
+            <span>K6 Load Testing</span>
             <span>JMeter</span>
             <span>Query Optimization</span>
           </div>
@@ -814,7 +830,7 @@
       <h2 class="section-title">Backend-heavy projects with real operational logic.</h2>
       <p class="section-text">
         These projects demonstrate API architecture, authentication, business workflows,
-        deployment setup, real-time notifications, and production-oriented backend thinking.
+        deployment setup, real-time notifications, load testing, and production-oriented backend thinking.
       </p>
 
       <div class="projects">
@@ -837,6 +853,8 @@
                 <li>Order status tracking</li>
                 <li>Service call system</li>
                 <li>Staff dashboard</li>
+                <li>Owner statistics dashboard</li>
+                <li>Super admin dashboard</li>
               </ul>
             </div>
 
@@ -848,7 +866,9 @@
                 <li>Firebase Cloud Messaging notifications</li>
                 <li>Docker Compose local environment</li>
                 <li>Nginx reverse proxy routing</li>
-                <li>Client-server architecture</li>
+                <li>Stateless backend scaling architecture</li>
+                <li>Externalized state with Redis and database</li>
+                <li>K6 soak testing and performance validation</li>
               </ul>
             </div>
           </div>
@@ -860,10 +880,12 @@
             <span>JavaScript</span>
             <span>Docker Compose</span>
             <span>Nginx</span>
+            <span>Redis</span>
             <span>Firebase Cloud Messaging</span>
+            <span>K6 Load Testing</span>
           </div>
 
-          <h4 class="screenshots-title">Screenshots</h4>
+          <h4 class="screenshots-title">Screenshots & Architecture Evidence</h4>
 
           <div class="screenshots-grid">
             <figure class="screenshot">
@@ -884,6 +906,21 @@
             <figure class="screenshot">
               <figcaption>Super Admin Dashboard</figcaption>
               <img src="restaurant-super-admin-dashboard.jpg" alt="Super Admin Dashboard" loading="lazy">
+            </figure>
+
+            <figure class="screenshot screenshot-document">
+              <figcaption>Production-Ready Dockerized Scaling</figcaption>
+              <img src="1000136779.jpg" alt="Production-ready Dockerized scaling architecture" loading="lazy">
+            </figure>
+
+            <figure class="screenshot screenshot-document">
+              <figcaption>Performance Key Metrics</figcaption>
+              <img src="1000136780.jpg" alt="Performance key metrics report" loading="lazy">
+            </figure>
+
+            <figure class="screenshot screenshot-document">
+              <figcaption>Soak Test - System Stability Analysis</figcaption>
+              <img src="1000136781.jpg" alt="Soak test system stability analysis report" loading="lazy">
             </figure>
           </div>
         </article>
