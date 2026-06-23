@@ -158,6 +158,11 @@
       box-shadow: 0 14px 35px rgba(56, 189, 248, 0.22);
     }
 
+    .nav-cv:hover {
+      color: #020617;
+      background: linear-gradient(135deg, var(--primary), #67e8f9);
+    }
+
     section {
       padding: 5.5rem 0;
       scroll-margin-top: 100px;
@@ -359,9 +364,12 @@
     }
 
     .impact-grid,
-    .principles-grid,
-    .skill-groups {
+    .principles-grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skill-groups {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
     .expertise-card,
@@ -411,7 +419,7 @@
       background: rgba(255, 255, 255, 0.055);
       color: #e2e8f0;
       font-size: 0.86rem;
-      font-weight: 750;
+      font-weight: 700;
     }
 
     .projects {
@@ -575,7 +583,7 @@
       padding: 0.78rem 0.9rem;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      font-weight: 850;
+      font-weight: 800;
       font-size: 0.9rem;
     }
 
@@ -733,7 +741,6 @@
       .hero,
       .project-grid,
       .contact-wrap,
-      .skill-groups,
       .impact-grid,
       .principles-grid {
         grid-template-columns: 1fr;
@@ -812,7 +819,7 @@
   <header>
     <div class="container nav">
       <a class="brand" href="#home" aria-label="Ahmad Kadri Portfolio Home">
-        <img class="openable-image" src="ahmad.jpg" alt="Ahmad Kadri">
+        <img src="ahmad.jpg" alt="Ahmad Kadri">
         <div>
           <h1>Ahmad Kadri</h1>
           <span>Software Engineer</span>
@@ -826,6 +833,7 @@
         <ul>
           <li><a href="#expertise">Expertise</a></li>
           <li><a href="#impact">Impact</a></li>
+          <li><a href="#principles">Principles</a></li>
           <li><a href="#skills">Stack</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a class="nav-cv" href="Ahmad_kadri_Lebenslauf.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
@@ -876,11 +884,11 @@
             <span>JWT, OAuth2, Auth0</span>
           </div>
           <div class="metric">
-            <strong>DevOps</strong>
+            <strong>DevOps & Deployment</strong>
             <span>Docker, Nginx, CI/CD</span>
           </div>
           <div class="metric">
-            <strong>Quality</strong>
+            <strong>Quality Engineering</strong>
             <span>Testing, logging, validation</span>
           </div>
         </div>
@@ -908,7 +916,7 @@
 
         <article class="expertise-card">
           <h3>Production Readiness</h3>
-          <p>Docker Compose, Nginx, CI/CD, Swagger, Redis caching, logging, exception handling, and automated testing.</p>
+          <p>Docker Compose, Nginx, CI/CD, Swagger/OpenAPI, Redis caching, logging, exception handling, and automated testing.</p>
         </article>
       </div>
     </section>
@@ -980,7 +988,7 @@
 
       <div class="skill-groups">
         <div class="skill-group">
-          <h3>Backend</h3>
+          <h3>Backend & APIs</h3>
           <div class="tags">
             <span>Java</span>
             <span>Spring Boot</span>
@@ -989,7 +997,7 @@
             <span>JPA / Hibernate</span>
             <span>DTOs</span>
             <span>Validation</span>
-            <span>Swagger</span>
+            <span>Swagger / OpenAPI</span>
           </div>
         </div>
 
@@ -1000,8 +1008,8 @@
             <span>JWT</span>
             <span>Auth0</span>
             <span>OAuth2</span>
-            <span>Role-Based Access</span>
-            <span>Cookie Authentication</span>
+            <span>Role-Based Access Control</span>
+            <span>Secure Cookies</span>
           </div>
         </div>
 
@@ -1012,24 +1020,43 @@
             <span>MySQL</span>
             <span>Redis Caching</span>
             <span>Pagination</span>
+            <span>Query Optimization</span>
             <span>K6 Load Testing</span>
             <span>JMeter</span>
-            <span>Query Optimization</span>
           </div>
         </div>
 
         <div class="skill-group">
-          <h3>DevOps & Integration</h3>
+          <h3>DevOps, Cloud & Deployment</h3>
           <div class="tags">
+            <span>Docker</span>
             <span>Docker Compose</span>
             <span>Nginx</span>
             <span>GitHub Actions</span>
             <span>CI/CD</span>
             <span>AWS</span>
             <span>Railway</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Frontend & UI</h3>
+          <div class="tags">
             <span>JavaScript</span>
             <span>Thymeleaf</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Responsive UI</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Integrations & Notifications</h3>
+          <div class="tags">
             <span>Firebase Cloud Messaging</span>
+            <span>EmailJS</span>
+            <span>External APIs</span>
+            <span>Realtime Notifications</span>
           </div>
         </div>
       </div>
@@ -1130,7 +1157,9 @@
           </div>
 
           <div class="project-actions">
-            <a class="btn btn-outline" href="#contact">Code Available on Request</a>
+            <a class="btn btn-outline" href="mailto:ahmadkadri@web.de?subject=Restaurant%20Operating%20System%20Code%20Access">
+              Request Code Access
+            </a>
           </div>
 
           <h4 class="screenshots-title">Screenshots & Architecture Evidence</h4>
@@ -1398,6 +1427,7 @@
     const lightboxImage = document.getElementById("lightbox-image");
     const lightboxTitle = document.getElementById("lightbox-title");
     const lightboxClose = document.getElementById("lightbox-close");
+    const menuToggle = document.getElementById("menu-toggle");
 
     document.querySelectorAll(".openable-image").forEach((image) => {
       image.addEventListener("click", () => {
@@ -1433,6 +1463,14 @@
       if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
         closeLightbox();
       }
+    });
+
+    document.querySelectorAll("nav a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (menuToggle) {
+          menuToggle.checked = false;
+        }
+      });
     });
   </script>
 </body>
