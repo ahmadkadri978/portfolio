@@ -15,6 +15,7 @@ from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
+    Image as ReportLabImage,
     KeepTogether,
     PageBreak,
     Paragraph,
@@ -219,7 +220,7 @@ def page_decoration(canvas, doc) -> None:
     canvas.line(18 * mm, 12.5 * mm, width - 18 * mm, 12.5 * mm)
     canvas.setFont("DejaVu", 7.2)
     canvas.setFillColor(MUTED)
-    canvas.drawString(18 * mm, 8.2 * mm, "Ahmad Kadri · Junior Software Engineer")
+    canvas.drawString(18 * mm, 8.2 * mm, "Ahmad Kadri | Junior Software Engineer")
     canvas.drawRightString(width - 18 * mm, 8.2 * mm, f"Seite {doc.page}")
     canvas.restoreState()
 
@@ -239,15 +240,41 @@ def build_story(styles: dict[str, ParagraphStyle]) -> list:
         + link("https://linkedin.com/in/kadri-ahmad", "linkedin.com/in/kadri-ahmad")
     )
 
-    story = [
-        Spacer(1, 1.5 * mm),
-        Paragraph("AHMAD KADRI", styles["name"]),
-        Paragraph("Junior Software Engineer | Java & Spring Boot", styles["role"]),
-        Paragraph(contact_one, styles["contact"]),
-        Paragraph(contact_two, styles["contact"]),
-        Paragraph(contact_three, styles["contact"]),
-        Spacer(1, 2.5 * mm),
-    ]
+    profile_photo = ReportLabImage(
+        str(REPO_ROOT / "cv" / "ahmad-cv.jpg"),
+        width=31 * mm,
+        height=31 * mm,
+    )
+    header = Table(
+        [
+            [
+                [
+                    Paragraph("AHMAD KADRI", styles["name"]),
+                    Paragraph("Junior Software Engineer | Java & Spring Boot", styles["role"]),
+                    Paragraph(contact_one, styles["contact"]),
+                    Paragraph(contact_two, styles["contact"]),
+                    Paragraph(contact_three, styles["contact"]),
+                ],
+                profile_photo,
+            ]
+        ],
+        colWidths=[139 * mm, 35 * mm],
+        hAlign="LEFT",
+    )
+    header.setStyle(
+        TableStyle(
+            [
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 0),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+                ("TOPPADDING", (0, 0), (-1, -1), 0),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+                ("ALIGN", (1, 0), (1, 0), "RIGHT"),
+            ]
+        )
+    )
+
+    story = [Spacer(1, 1.5 * mm), header, Spacer(1, 2.5 * mm)]
 
     story.extend(section_heading("Kurzprofil", styles))
     story.append(
@@ -264,8 +291,8 @@ def build_story(styles: dict[str, ParagraphStyle]) -> list:
     story.extend(section_heading("Ausgewählte Praxisprojekte (Eigenprojekte)", styles))
     story.append(
         project(
-            "RheinOps Platform — Service Operations & Incident Management",
-            "2026 · Primäre Backend-Fallstudie · Java 21 / Spring Boot / PostgreSQL / Docker",
+            "RheinOps Platform - Service Operations & Incident Management",
+            "2026 | Primäre Backend-Fallstudie | Java 21 / Spring Boot / PostgreSQL / Docker",
             [
                 "Entwicklung einer modularen Service-Operations-Plattform mit Servicekatalog, Incident Management und SLA-gesteuerten Supportfällen; Modulgrenzen werden durch Spring-Modulith-Architekturtests geprüft.",
                 "Absicherung der REST-API mit Keycloak, OIDC/JWT, Audience-Prüfung, vier Betriebsrollen und deny-by-default Autorisierung; Rollenmatrix wird per Integrationstest verifiziert.",
@@ -278,9 +305,9 @@ def build_story(styles: dict[str, ParagraphStyle]) -> list:
                     "https://github.com/ahmadkadri978/rheinops-platform",
                     "github.com/ahmadkadri978/rheinops-platform",
                 )
-                + " &nbsp;·&nbsp; "
+                + " &nbsp;|&nbsp; "
                 + link("https://rheinops-portfolio-demo.kadriahmad59.chatgpt.site", "Read-only Live-Demo")
-                + " &nbsp;·&nbsp; "
+                + " &nbsp;|&nbsp; "
                 + link(
                     "https://github.com/ahmadkadri978/rheinops-platform/blob/main/docs/portfolio/cv-case-study.md",
                     "Architektur & Trade-offs",
@@ -291,8 +318,8 @@ def build_story(styles: dict[str, ParagraphStyle]) -> list:
 
     story.append(
         project(
-            "Restaurant Operating System — QR Ordering Platform",
-            "2026 · Spring Boot / JavaScript / Docker Compose / Nginx / Redis / FCM",
+            "Restaurant Operating System - QR Ordering Platform",
+            "2026 | Spring Boot / JavaScript / Docker Compose / Nginx / Redis / FCM",
             [
                 "Entwicklung digitaler QR-Bestellungen, Tisch-Sessions, Statusverfolgung, Echtzeit-Benachrichtigungen sowie Staff-, Owner- und Super-Admin-Dashboards.",
                 "Containerisierte Umgebung mit Docker Compose und Nginx; zustandslose Backend-Ausrichtung mit externer Zustandsverwaltung über Datenbank und Redis.",
@@ -308,8 +335,26 @@ def build_story(styles: dict[str, ParagraphStyle]) -> list:
 
     story.append(
         project(
+            "Rizq Platform - Local Services Marketplace",
+            "2025 | Spring Boot / Spring Security / JWT / PostgreSQL / Thymeleaf / Docker",
+            [
+                "Entwicklung eines lokalen Dienstleistungsmarktplatzes mit Registrierungsfreigabe, Rollenmodell, User-/Admin-Dashboards und Listing-Verwaltung.",
+                "Umsetzung geschützter Workflows mit JWT-Cookies, DTO-basierten API-Grenzen sowie Stadt- und Servicetyp-Filtern.",
+            ],
+            styles,
+            links=link(
+                "https://github.com/ahmadkadri978/rizq-platform",
+                "github.com/ahmadkadri978/rizq-platform",
+            ),
+        )
+    )
+
+    story.append(PageBreak())
+    story.extend(section_heading("Weitere Praxisprojekte", styles))
+    story.append(
+        project(
             "Digital Library Management System",
-            "2025 · Spring Boot / Spring Security / MySQL / Redis / Thymeleaf / Docker",
+            "2025 | Spring Boot / Spring Security / MySQL / Redis / Thymeleaf / Docker",
             [
                 "Umsetzung von Buchverwaltung, Reservierungen, Duplikatschutz und rollenbasierten Admin-Workflows mit GitHub-OAuth2-Anmeldung.",
                 "Qualitätssicherung mit JUnit, Mockito und MockMvc; Redis-Caching, Docker, GitHub Actions sowie praktische Deployment-Erfahrung mit AWS und Railway.",
@@ -322,7 +367,6 @@ def build_story(styles: dict[str, ParagraphStyle]) -> list:
         )
     )
 
-    story.append(PageBreak())
     story.extend(section_heading("Technische Kenntnisse", styles))
     story.append(
         skill_table(
@@ -344,7 +388,6 @@ def build_story(styles: dict[str, ParagraphStyle]) -> list:
         "Strukturierte Fehleranalyse über Reproduktion, Logs, Metriken, Traces und Datenbankzustand; Ergebnisse und nächste Schritte werden nachvollziehbar dokumentiert.",
         "Sicherheits- und Datenintegritätsregeln werden als testbare Systemgrenzen behandelt, nicht nur als Controller-Logik.",
         "Dokumentation durch OpenAPI, Architekturentscheidungen (ADRs), Runbooks, Walkthroughs und bekannte Einschränkungen.",
-        "Pragmatische Architekturentscheidungen: einfache Betriebsmodelle bevorzugen und Komplexität erst bei messbarem Bedarf hinzufügen.",
     ]:
         story.append(bullet(item, styles))
 
@@ -352,9 +395,9 @@ def build_story(styles: dict[str, ParagraphStyle]) -> list:
     education = Table(
         [
             [
-                Paragraph("11/2015 – 12/2020", styles["skill_label"]),
+                Paragraph("11/2015 - 12/2020", styles["skill_label"]),
                 Paragraph(
-                    "<b>Bachelor in Informatik</b><br/>Universität Aleppo · Fakultät für Informatikingenieurwesen",
+                    "<b>Bachelor in Informatik</b><br/>Universität Aleppo | Fakultät für Informatikingenieurwesen",
                     styles["skill_text"],
                 ),
             ]
@@ -380,7 +423,7 @@ def build_story(styles: dict[str, ParagraphStyle]) -> list:
         skill_table(
             [
                 ("Arabisch", "Muttersprache"),
-                ("Deutsch", "B2"),
+                ("Deutsch", "A2 - aktiv im Ausbau Richtung B1/B2"),
                 ("Englisch", "B2"),
             ],
             styles,
@@ -390,7 +433,7 @@ def build_story(styles: dict[str, ParagraphStyle]) -> list:
     story.extend(section_heading("Zielpositionen", styles))
     story.append(
         Paragraph(
-            "Junior Software Engineer · Java/Spring Boot Backend Developer · Application Support Engineer",
+            "Junior Software Engineer | Java/Spring Boot Backend Developer | Application Support Engineer",
             styles["body"],
         )
     )
