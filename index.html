@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Ahmad Kadri | Software Engineer</title>
-  <meta name="description" content="Ahmad Kadri - Software Engineer specialized in Java, Spring Boot, backend systems, REST APIs, security, Docker, Nginx, CI/CD, performance testing, and scalable applications.">
+  <title>Ahmad Kadri | Junior Software Engineer · Java & Spring Boot</title>
+  <meta name="description" content="Portfolio of Ahmad Kadri, a Junior Software Engineer in Braunschweig focused on Java 21, Spring Boot, PostgreSQL, secure REST APIs, Docker, CI/CD, testing, observability, and support-aware backend engineering.">
 
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -472,11 +472,26 @@
       margin-bottom: 1rem;
     }
 
+    .project-note {
+      max-width: 940px;
+      margin: 1rem 0;
+      padding: 0.9rem 1rem;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      background: rgba(245, 158, 11, 0.08);
+      color: #fdecc8;
+      font-size: 0.92rem;
+    }
+
     .performance-strip {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 0.8rem;
       margin: 1.3rem 0;
+    }
+
+    .evidence-strip {
+      grid-template-columns: repeat(4, 1fr);
     }
 
     .performance-card {
@@ -732,7 +747,8 @@
     }
 
     @media (max-width: 1040px) {
-      .performance-strip {
+      .performance-strip,
+      .evidence-strip {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -808,7 +824,8 @@
       }
 
       .metrics,
-      .performance-strip {
+      .performance-strip,
+      .evidence-strip {
         grid-template-columns: 1fr;
       }
     }
@@ -822,7 +839,7 @@
         <img src="ahmad.jpg" alt="Ahmad Kadri">
         <div>
           <h1>Ahmad Kadri</h1>
-          <span>Software Engineer</span>
+          <span>Junior Software Engineer</span>
         </div>
       </a>
 
@@ -846,20 +863,22 @@
   <main id="home">
     <section class="hero container">
       <div>
-        <div class="hero-badge">Java • Spring Boot • Security • Performance • Scalable Systems</div>
+        <div class="hero-badge">Java 21 • Spring Boot • PostgreSQL • Docker • CI/CD</div>
 
         <h2>
-          I design backend systems that are
-          <span>secure, scalable, measurable, and production-ready.</span>
+          I build backend systems that stay understandable
+          <span>when something goes wrong.</span>
         </h2>
 
         <p>
-          Software engineer focused on backend architecture, security, performance, REST APIs, clean domain logic,
-          Dockerized deployment, and reliable systems that support real business operations.
+          Junior Software Engineer in Braunschweig focused on Java and Spring Boot. I build secure REST APIs,
+          tested domain workflows, observable services, and repeatable Docker environments—with the operational
+          awareness needed to troubleshoot and support software after delivery.
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View Case Studies</a>
+          <a class="btn btn-primary" href="https://rheinops-portfolio-demo.kadriahmad59.chatgpt.site" target="_blank" rel="noopener noreferrer">Open RheinOps Demo</a>
+          <a class="btn btn-outline" href="#projects">View Case Studies</a>
           <a class="btn btn-outline" href="Ahmad_kadri_Lebenslauf.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
           <a class="btn btn-outline" href="https://github.com/ahmadkadri978" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
@@ -868,28 +887,28 @@
       <aside class="hero-panel">
         <img class="profile-img openable-image" src="ahmad.jpg" alt="Ahmad Kadri profile photo">
 
-        <h3>Software engineer. Backend-focused. Architecture-minded.</h3>
+        <h3>Backend-first. Operations-aware. Ready to contribute.</h3>
         <p>
-          I build backend systems with strong API design, clear domain boundaries,
-          reliable security, structured testing, and deployment awareness.
+          My projects connect clean code with the evidence teams need: tests, security boundaries,
+          deployment automation, metrics, traces, runbooks, and honest scope documentation.
         </p>
 
         <div class="metrics">
           <div class="metric">
-            <strong>REST APIs</strong>
-            <span>Clean, documented endpoints</span>
+            <strong>Java & Spring</strong>
+            <span>Java 21, Spring Boot, Modulith</span>
           </div>
           <div class="metric">
             <strong>Security</strong>
-            <span>JWT, OAuth2, Auth0</span>
+            <span>OIDC/JWT, Keycloak, RBAC</span>
           </div>
           <div class="metric">
-            <strong>DevOps & Deployment</strong>
-            <span>Docker, Nginx, CI/CD</span>
+            <strong>Delivery</strong>
+            <span>Docker, GitHub Actions, CI/CD</span>
           </div>
           <div class="metric">
-            <strong>Quality Engineering</strong>
-            <span>Testing, logging, validation</span>
+            <strong>Operations</strong>
+            <span>Prometheus, Grafana, Tempo</span>
           </div>
         </div>
       </aside>
@@ -897,57 +916,56 @@
 
     <section id="expertise" class="container">
       <p class="eyebrow">Expertise</p>
-      <h2 class="section-title">Backend systems built with clarity, security, and scale.</h2>
+      <h2 class="section-title">Backend engineering with operational context.</h2>
       <p class="section-text">
-        My strength is turning business workflows into structured backend architecture:
-        APIs, database models, authentication flows, service layers, validation, testing, and deployment.
+        I turn business and support workflows into maintainable backend systems: explicit modules,
+        secure API contracts, reliable data rules, automated tests, and reproducible delivery.
       </p>
 
       <div class="expertise-grid">
         <article class="expertise-card">
-          <h3>System Architecture</h3>
-          <p>Clean service layers, DTO-based APIs, domain boundaries, pagination, validation, and maintainable modules.</p>
+          <h3>Reliable Backend APIs</h3>
+          <p>Java and Spring Boot services with DTO contracts, validation, state machines, pagination, and explicit module boundaries.</p>
         </article>
 
         <article class="expertise-card">
-          <h3>Security & Access Control</h3>
-          <p>Spring Security, JWT, Auth0, OAuth2, role-based authorization, protected routes, and secure user flows.</p>
+          <h3>Security & Data Integrity</h3>
+          <p>Spring Security, OIDC/JWT, role-based authorization, optimistic locking, migrations, and append-only audit evidence.</p>
         </article>
 
         <article class="expertise-card">
-          <h3>Production Readiness</h3>
-          <p>Docker Compose, Nginx, CI/CD, Swagger/OpenAPI, Redis caching, logging, exception handling, and automated testing.</p>
+          <h3>Operations & Support</h3>
+          <p>Docker Compose, CI/CD, structured logs, metrics, traces, health checks, runbooks, and reproducible failure diagnosis.</p>
         </article>
       </div>
     </section>
 
     <section id="impact" class="container">
       <p class="eyebrow">Engineering Impact</p>
-      <h2 class="section-title">I focus on backend decisions that matter in production.</h2>
+      <h2 class="section-title">Engineering choices a reviewer can verify.</h2>
       <p class="section-text">
-        Beyond building features, I care about reliability, observability, API contracts,
-        security boundaries, testability, and deployment behavior.
+        My case studies connect each claim to code, tests, architecture decisions, or operational evidence.
       </p>
 
       <div class="impact-grid">
         <article class="impact-card">
-          <h3>API Contracts & Maintainability</h3>
-          <p>Designed REST APIs with DTO-based request/response contracts, validation, pagination, and clear service boundaries.</p>
+          <h3>Module Boundaries & API Contracts</h3>
+          <p>Used Spring Modulith architecture tests and DTO-based REST contracts to keep responsibilities and integration points explicit.</p>
         </article>
 
         <article class="impact-card">
-          <h3>Security by Design</h3>
-          <p>Implemented protected workflows using JWT, OAuth2, Auth0, Spring Security, role-based access, and secure cookies.</p>
+          <h3>Concurrency & Auditability</h3>
+          <p>Protected state transitions with optimistic concurrency and recorded actor-attributed, append-only operational history.</p>
         </article>
 
         <article class="impact-card">
-          <h3>Deployment-Aware Engineering</h3>
-          <p>Built Dockerized environments with Nginx reverse proxy, externalized state, and cloud-ready architecture.</p>
+          <h3>Delivery Automation</h3>
+          <p>Built reproducible Maven and Docker workflows with integration tests, asset validation, container builds, and GitHub Actions.</p>
         </article>
 
         <article class="impact-card">
-          <h3>Performance Validation</h3>
-          <p>Validated backend stability using K6 and JMeter performance testing, latency metrics, error rate checks, and soak tests.</p>
+          <h3>Reliability & Troubleshooting</h3>
+          <p>Connected correlation IDs, structured logs, Prometheus metrics, Tempo traces, k6 scenarios, and reversible failure drills.</p>
         </article>
       </div>
     </section>
@@ -963,8 +981,8 @@
         </article>
 
         <article class="principle-card">
-          <h3>Stateless where possible</h3>
-          <p>Backend services should be easier to scale horizontally, with shared state handled by databases or external services.</p>
+          <h3>Evidence over claims</h3>
+          <p>Architecture tests, integration tests, CI gates, runbooks, and documented trade-offs make engineering claims reviewable.</p>
         </article>
 
         <article class="principle-card">
@@ -973,8 +991,8 @@
         </article>
 
         <article class="principle-card">
-          <h3>Observable and testable services</h3>
-          <p>Logging, validation, exception handling, unit tests, integration tests, and performance tests improve reliability.</p>
+          <h3>Honest operational scope</h3>
+          <p>Public demos, local reliability labs, and production systems are different things; limitations should be stated clearly.</p>
         </article>
       </div>
     </section>
@@ -990,8 +1008,9 @@
         <div class="skill-group">
           <h3>Backend & APIs</h3>
           <div class="tags">
-            <span>Java</span>
+            <span>Java 21</span>
             <span>Spring Boot</span>
+            <span>Spring Modulith</span>
             <span>REST APIs</span>
             <span>Spring MVC</span>
             <span>JPA / Hibernate</span>
@@ -1005,58 +1024,64 @@
           <h3>Security</h3>
           <div class="tags">
             <span>Spring Security</span>
+            <span>OIDC / OAuth2</span>
             <span>JWT</span>
+            <span>Keycloak</span>
             <span>Auth0</span>
-            <span>OAuth2</span>
             <span>Role-Based Access Control</span>
-            <span>Secure Cookies</span>
           </div>
         </div>
 
         <div class="skill-group">
-          <h3>Data & Performance</h3>
+          <h3>Data & Concurrency</h3>
           <div class="tags">
             <span>PostgreSQL</span>
             <span>MySQL</span>
+            <span>Flyway</span>
             <span>Redis Caching</span>
-            <span>Pagination</span>
-            <span>Query Optimization</span>
-            <span>K6 Load Testing</span>
-            <span>JMeter</span>
+            <span>Full-Text Search</span>
+            <span>Optimistic Locking</span>
           </div>
         </div>
 
         <div class="skill-group">
-          <h3>DevOps, Cloud & Deployment</h3>
+          <h3>Testing & Quality</h3>
+          <div class="tags">
+            <span>JUnit 5</span>
+            <span>Mockito</span>
+            <span>MockMvc</span>
+            <span>Testcontainers</span>
+            <span>Architecture Tests</span>
+            <span>k6 / JMeter</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>DevOps & Observability</h3>
           <div class="tags">
             <span>Docker</span>
             <span>Docker Compose</span>
             <span>Nginx</span>
             <span>GitHub Actions</span>
             <span>CI/CD</span>
-            <span>AWS</span>
-            <span>Railway</span>
+            <span>Prometheus</span>
+            <span>Grafana</span>
+            <span>Tempo</span>
+            <span>Toxiproxy</span>
           </div>
         </div>
 
         <div class="skill-group">
-          <h3>Frontend & UI</h3>
+          <h3>UI, Cloud & Integrations</h3>
           <div class="tags">
             <span>JavaScript</span>
             <span>Thymeleaf</span>
             <span>HTML</span>
             <span>CSS</span>
-            <span>Responsive UI</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>Integrations & Notifications</h3>
-          <div class="tags">
+            <span>AWS</span>
+            <span>Railway</span>
             <span>Firebase Cloud Messaging</span>
-            <span>EmailJS</span>
             <span>External APIs</span>
-            <span>Realtime Notifications</span>
           </div>
         </div>
       </div>
@@ -1064,15 +1089,129 @@
 
     <section id="projects" class="container">
       <p class="eyebrow">Selected Projects</p>
-      <h2 class="section-title">Backend-heavy projects with real operational logic.</h2>
+      <h2 class="section-title">Backend case studies with reviewable evidence.</h2>
       <p class="section-text">
-        These projects demonstrate API architecture, authentication, business workflows,
-        deployment setup, real-time notifications, load testing, and production-oriented backend thinking.
+        Start with RheinOps for my strongest Java/Spring Boot case study, then explore supporting projects
+        covering performance, business workflows, caching, notifications, and deployment.
       </p>
 
       <div class="projects">
         <article class="project featured-project">
-          <div class="case-label">Featured Case Study</div>
+          <div class="case-label">Primary Case Study · Public Demo</div>
+
+          <h3>RheinOps Platform</h3>
+
+          <p class="project-summary">
+            A production-oriented service operations, incident management, and customer support API built with
+            Java 21, Spring Boot, PostgreSQL, and Docker. RheinOps demonstrates safe incident transitions,
+            immutable audit evidence, SLA-driven support queues, searchable diagnostics, and reproducible reliability engineering.
+          </p>
+
+          <p class="project-summary">
+            I chose a modular monolith to keep deployment and transactions simple while using Spring Modulith
+            architecture tests to protect the service catalog, incident, and support boundaries.
+          </p>
+
+          <div class="performance-strip evidence-strip">
+            <div class="performance-card">
+              <strong>3</strong>
+              <span>Business Modules</span>
+            </div>
+
+            <div class="performance-card">
+              <strong>4</strong>
+              <span>Operational Roles</span>
+            </div>
+
+            <div class="performance-card">
+              <strong>4</strong>
+              <span>CI Quality Jobs</span>
+            </div>
+
+            <div class="performance-card">
+              <strong>Real DB</strong>
+              <span>PostgreSQL Integration Tests</span>
+            </div>
+          </div>
+
+          <div class="project-grid">
+            <div class="project-box">
+              <h4>Operational Workflows</h4>
+              <ul>
+                <li>Validated incident and support-case state machines</li>
+                <li>Optimistic concurrency and append-only audit history</li>
+                <li>Snapshotted SLA commitments and escalation states</li>
+                <li>Diagnostics, runbook links, ranked search, and redacted export</li>
+                <li>Correlation IDs and consistent problem responses</li>
+              </ul>
+            </div>
+
+            <div class="project-box">
+              <h4>Engineering Evidence</h4>
+              <ul>
+                <li>Keycloak OIDC/JWT with audience checks and RBAC</li>
+                <li>Flyway-managed PostgreSQL and Testcontainers</li>
+                <li>Prometheus, Grafana, Tempo, and structured logs</li>
+                <li>Versioned k6 scenarios and reversible Toxiproxy drills</li>
+                <li>GitHub Actions verification and production image build</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span>Java 21</span>
+            <span>Spring Boot</span>
+            <span>Spring Modulith</span>
+            <span>PostgreSQL</span>
+            <span>Keycloak</span>
+            <span>Testcontainers</span>
+            <span>Docker Compose</span>
+            <span>GitHub Actions</span>
+            <span>Prometheus / Grafana / Tempo</span>
+          </div>
+
+          <p class="project-note">
+            Honest scope: the public console is a safe, read-only walkthrough with fictional data—not a public
+            production API. The executable backend, tests, Compose stack, reliability lab, and engineering evidence are in the repository.
+          </p>
+
+          <div class="project-actions">
+            <a class="btn btn-primary" href="https://rheinops-portfolio-demo.kadriahmad59.chatgpt.site" target="_blank" rel="noopener noreferrer">
+              Open Live Demo
+            </a>
+            <a class="btn btn-outline" href="https://github.com/ahmadkadri978/rheinops-platform" target="_blank" rel="noopener noreferrer">
+              View Source Code
+            </a>
+            <a class="btn btn-outline" href="https://github.com/ahmadkadri978/rheinops-platform/blob/main/docs/portfolio/walkthrough.md" target="_blank" rel="noopener noreferrer">
+              3-Minute Walkthrough
+            </a>
+            <a class="btn btn-outline" href="https://github.com/ahmadkadri978/rheinops-platform/blob/main/docs/portfolio/cv-case-study.md" target="_blank" rel="noopener noreferrer">
+              Architecture & Trade-offs
+            </a>
+          </div>
+
+          <h4 class="screenshots-title">Reviewable Product & Architecture Evidence</h4>
+
+          <div class="screenshots-grid">
+            <figure class="screenshot">
+              <figcaption>Operations overview</figcaption>
+              <img class="openable-image" src="rheinops-operations-overview.webp" alt="RheinOps operations overview showing service, incident, and support evidence" loading="lazy">
+            </figure>
+
+            <figure class="screenshot">
+              <figcaption>Support queue and SLA state</figcaption>
+              <img class="openable-image" src="rheinops-support-sla.webp" alt="RheinOps support case and SLA evidence" loading="lazy">
+            </figure>
+
+            <figure class="screenshot screenshot-document">
+              <figcaption>System architecture</figcaption>
+              <img class="openable-image" src="rheinops-system-architecture.svg" alt="RheinOps modular monolith system architecture" loading="lazy">
+            </figure>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="case-label">Performance Case Study</div>
 
           <h3>Restaurant Operating System</h3>
 
@@ -1280,6 +1419,7 @@
                 <li>Redis caching layer</li>
                 <li>Docker-based local setup</li>
                 <li>AWS/Railway deployment experience</li>
+                <li>JUnit, Mockito, and MockMvc tests</li>
                 <li>JMeter performance testing</li>
               </ul>
             </div>
@@ -1294,6 +1434,7 @@
             <span>Docker</span>
             <span>MySQL</span>
             <span>AWS</span>
+            <span>JUnit / Mockito / MockMvc</span>
             <span>JMeter</span>
           </div>
 
@@ -1367,10 +1508,11 @@
 
     <section id="contact" class="container">
       <p class="eyebrow">Contact</p>
-      <h2 class="section-title">Let’s build serious backend systems.</h2>
+      <h2 class="section-title">Looking for a junior engineer who can follow software into production?</h2>
       <p class="section-text">
-        Open to software engineering opportunities focused on Java, Spring Boot,
-        backend systems, APIs, security, architecture, performance, and production-ready applications.
+        I am open to Junior Software Engineer, Java/Spring Boot Backend, and Application Support Engineer roles
+        in Germany. My primary path is backend development; troubleshooting, documentation, and operational awareness
+        are additional strengths I bring to a team.
       </p>
 
       <div class="contact-wrap">
@@ -1397,8 +1539,8 @@
 
       <div class="cv-strip">
         <div>
-          <h3>Need the full profile?</h3>
-          <p>Download my CV for a complete overview of my software engineering skills, backend projects, and technical experience.</p>
+          <h3>German CV, ready for review</h3>
+          <p>Download the concise ATS-friendly CV with project evidence, technical skills, education, languages, and direct links.</p>
         </div>
 
         <a class="btn btn-primary" href="Ahmad_kadri_Lebenslauf.pdf" target="_blank" rel="noopener noreferrer">
@@ -1409,7 +1551,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 Ahmad Kadri | Software Engineer Portfolio</p>
+    <p>&copy; 2026 Ahmad Kadri | Junior Software Engineer · Java & Spring Boot</p>
   </footer>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
